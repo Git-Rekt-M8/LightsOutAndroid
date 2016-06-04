@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/plain_bg"
+    tools:context="com.koalition.edu.lightsout.PowerUpListActivity">
+
+    <ImageView
+        android:id="@+id/iv_design_header"
+        android:layout_width="200dp"
+        android:layout_height="44dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/design_header"
+        android:layout_below="@+id/player_balance"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="144dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/back_btn"
+        android:layout_alignTop="@+id/back_button_clicked"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/back_button_clicked"
+        android:layout_width="144dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/back_btn_clk"
+        android:layout_alignTop="@+id/player_coin_icon"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/player_coin_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/player_coin_icon"
+        android:layout_alignBottom="@+id/player_balance"
+        android:layout_toStartOf="@+id/player_balance"
+        android:layout_marginEnd="25dp" />
+
+    <ImageView
+        android:id="@+id/iv_green_house_btn"
+        android:layout_width="705dp"
+        android:layout_height="81dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/green_house_btn"
+        android:layout_below="@+id/iv_design_header"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/freeze_powerup_cliicked"-->
+        <!--android:layout_width="705dp"-->
+        <!--android:layout_height="81dp"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/freeze_power_btn_clk"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignEnd="@+id/player_balance" />-->
+
+    <ImageView
+        android:id="@+id/iv_nipa_hut_btn"
+        android:layout_width="705dp"
+        android:layout_height="81dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/nipa_hut_btn"
+        android:layout_below="@+id/iv_green_house_btn"
+        android:layout_alignParentStart="true" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/brownout_powerup_clicked"-->
+        <!--android:layout_width="705dp"-->
+        <!--android:layout_height="81dp"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/brownout_power_btn_clk"-->
+        <!--android:layout_below="@+id/freeze_powerup"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+    <TextView
+        android:id="@+id/player_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textColor="#f7f7f9"
+        android:textSize="40sp"
+        android:layout_marginEnd="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+
+
+</RelativeLayout>

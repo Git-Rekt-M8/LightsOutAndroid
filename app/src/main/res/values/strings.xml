@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Lights Out</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_game_over">GameOver</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="facebook_app_id">964870153590047</string>
+    <string name="share">Share</string>
+    <string name="title_activity_settings_dialog">SettingsDialogActivity</string>
+    <string name="title_activity_shop_main">ShopMainActivity</string>
+    <string name="title_activity_power_up_list">PowerUpListActivity</string>
+    <string name="title_activity_difficulty_selection">DifficultySelectionActivity</string>
+    <string name="title_activity_easy_play_game">EasyPlayGameActivity</string>
+    <string name="title_activity_medium_play_game">MediumPlayGameActivity</string>
+    <string name="title_activity_insane_play_game">InsanePlayGameActivity</string>
+    <string name="title_activity_design_list">DesignListActivity</string>
+</resources>

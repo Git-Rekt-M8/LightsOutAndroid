@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="432dp"
+    android:layout_height="368dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/dialog_box_blank"
+    tools:context="com.koalition.edu.lightsout.DifficultySelectionActivity"
+    android:id="@+id/difficultyLayout">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/close_btn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/iv_easyDifficulty"
+        android:layout_width="97dp"
+        android:layout_height="26dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/easy_level_btn"
+        android:layout_below="@+id/iv_close"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp" />
+
+    <ImageView
+        android:id="@+id/iv_mediumDifficulty"
+        android:layout_width="149dp"
+        android:layout_height="26dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/medium_level_btn"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/iv_hardDifficulty"
+        android:layout_width="132dp"
+        android:layout_height="26dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/insane_level_btn"
+        android:layout_marginTop="54dp"
+        android:layout_below="@+id/iv_mediumDifficulty"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.fullscreen.MainActivity"
+    android:background="@drawable/bg"
+    >
+
+
+    <ImageView
+    android:id="@+id/iv_title"
+    android:layout_width="329dp"
+    android:layout_height="52dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/title"
+    android:layout_marginTop="55dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/iv_playgamewht"
+        android:layout_width="223dp"
+        android:layout_height="58dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/playgame_btn"
+        android:layout_below="@+id/iv_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <ImageView
+        android:id="@+id/iv_playgameblk"
+        android:layout_width="223dp"
+        android:layout_height="58dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/playgame_btn_blk"
+        android:layout_below="@+id/iv_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <ImageView
+        android:id="@+id/iv_shopwht"
+        android:layout_width="223dp"
+        android:layout_height="58dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/shop_btn"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/iv_playgamewht"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/iv_shopblk"
+        android:layout_width="223dp"
+        android:layout_height="58dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/shop_btn_clk"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/iv_playgamewht"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/iv_settingswht"
+        android:layout_width="223dp"
+        android:layout_height="58dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/settings_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
+    <ImageView
+        android:id="@+id/iv_settingsblk"
+        android:layout_width="223dp"
+        android:layout_height="58dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/settings_btn_clk"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
+
+</RelativeLayout>

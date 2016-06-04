@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="432dp"
+    android:layout_height="368dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/settings_box"
+    tools:context="com.koalition.edu.lightsout.SettingsDialogActivity"
+    android:id="@+id/settingsLayout"
+    >
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/close_btn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/iv_music_check"
+        android:layout_width="126dp"
+        android:layout_height="27dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/music_btn_chk"
+        android:layout_above="@+id/iv_sound_fx_check"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp" />
+
+    <ImageView
+        android:id="@+id/iv_music_not"
+        android:layout_width="126dp"
+        android:layout_height="27dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/music_btn_not"
+        android:layout_alignTop="@+id/iv_music_check"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/iv_sound_fx_check"
+        android:layout_width="186dp"
+        android:layout_height="27dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/sound_fx_btn_chk"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/iv_sound_fx_not"
+        android:layout_width="186dp"
+        android:layout_height="27dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/sound_fx_btn_not"
+        android:layout_alignTop="@+id/iv_sound_fx_check"
+        android:layout_alignStart="@+id/iv_sound_fx_check" />
+
+    <ImageView
+        android:id="@+id/iv_credits"
+        android:layout_width="129dp"
+        android:layout_height="21dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/credits_btn"
+        android:layout_above="@+id/iv_reset"
+        android:layout_alignEnd="@+id/iv_music_check"
+        android:layout_marginBottom="28dp" />
+
+    <ImageView
+        android:id="@+id/iv_reset"
+        android:layout_width="258dp"
+        android:layout_height="21dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/reset_btn"
+        android:layout_marginBottom="51dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/iv_reset_question"
+        android:layout_width="308dp"
+        android:layout_height="132dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/reset_question"
+        android:layout_alignBottom="@+id/iv_sound_fx_check"
+        android:layout_toStartOf="@+id/iv_close" />
+
+    <ImageView
+        android:id="@+id/iv_cancel_button"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/reset_cancel_button"
+        android:layout_above="@+id/iv_reset"
+        android:layout_alignStart="@+id/iv_reset_question" />
+
+    <ImageView
+        android:id="@+id/iv_reset_button"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/reset_buton"
+        android:layout_above="@+id/iv_reset"
+        android:layout_alignEnd="@+id/iv_reset" />
+
+    <ImageView
+        android:id="@+id/iv_reset_status"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/notif_reset_done"
+        android:layout_alignBottom="@+id/iv_sound_fx_check"
+        android:layout_toStartOf="@+id/iv_close" />
+
+
+</RelativeLayout>
