@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -50,6 +51,7 @@ public class MediumPlayGameActivity extends Activity {
     TextView deductionTextView;
     TextView freezeTimeCountTextView;
     TextView brownoutCountTextView;
+    Typeface pixelFont;
 
 
     ImageView freezeScreenImageView;
@@ -129,6 +131,14 @@ public class MediumPlayGameActivity extends Activity {
         freezeTimeCountTextView = (TextView) findViewById(R.id.tv_freeze_count);
         brownoutCountTextView = (TextView) findViewById(R.id.tv_brown_out_count);
         deductionTextView = (TextView) findViewById(R.id.tv_deduction);
+
+        pixelFont = Typeface.createFromAsset(getAssets(),"fonts/pixelmix.ttf");
+        moneyTextView.setTypeface(pixelFont);
+        scoreTextView.setTypeface(pixelFont);
+        freezeTimeCountTextView.setTypeface(pixelFont);
+        brownoutCountTextView.setTypeface(pixelFont);
+        deductionTextView.setTypeface(pixelFont);
+
         slideDownAnim = AnimationUtils.loadAnimation(getBaseContext(), R.anim.slide_down_deduction);
         fadeOutAnim = AnimationUtils.loadAnimation(getBaseContext(), R.anim.fadeout);
 

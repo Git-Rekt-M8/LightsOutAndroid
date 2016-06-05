@@ -1,19 +1,22 @@
 package com.koalition.edu.lightsout;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class DifficultySelectionActivity extends Activity {
 
     ImageView close;
-    ImageView easyImageView;
-    ImageView mediumImageView;
-    ImageView hardImageView;
+    TextView easyTextView;
+    TextView mediumTextView;
+    TextView hardTextView;
+    Typeface pixelFont;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +25,16 @@ public class DifficultySelectionActivity extends Activity {
         getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         setContentView(R.layout.activity_difficulty_selection);
 
-        easyImageView = (ImageView) findViewById(R.id.iv_easyDifficulty);
-        mediumImageView = (ImageView) findViewById(R.id.iv_mediumDifficulty);
-        hardImageView = (ImageView) findViewById(R.id.iv_hardDifficulty);
+        easyTextView = (TextView) findViewById(R.id.iv_easyDifficulty);
+        mediumTextView = (TextView) findViewById(R.id.iv_mediumDifficulty);
+        hardTextView = (TextView) findViewById(R.id.iv_hardDifficulty);
 
-        easyImageView.setOnClickListener(new View.OnClickListener() {
+        pixelFont = Typeface.createFromAsset(getAssets(),"fonts/pixelmix.ttf");
+        easyTextView.setTypeface(pixelFont);
+        mediumTextView.setTypeface(pixelFont);
+        hardTextView.setTypeface(pixelFont);
+
+        easyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent startEasyGameIntent = new Intent(getBaseContext(), EasyPlayGameActivity.class);
@@ -34,7 +42,7 @@ public class DifficultySelectionActivity extends Activity {
             }
         });
 
-        mediumImageView.setOnClickListener(new View.OnClickListener() {
+        mediumTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent startMediumGameIntent = new Intent(getBaseContext(), MediumPlayGameActivity.class);
@@ -42,7 +50,7 @@ public class DifficultySelectionActivity extends Activity {
             }
         });
 
-        hardImageView.setOnClickListener(new View.OnClickListener() {
+        hardTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent startInsaneGameIntent = new Intent(getBaseContext(), InsanePlayGameActivity.class);

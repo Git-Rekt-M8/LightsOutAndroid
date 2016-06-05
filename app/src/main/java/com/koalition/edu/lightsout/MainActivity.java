@@ -26,10 +26,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView shopButton;
     ImageView settingsButton;
 
-    ImageView playGameButtonOnClick;
-    ImageView shopButtonOnClick;
-    ImageView settingsButtonOnClick;
-
     private MediaPlayer mediaPlayer;
     SharedPreferences sharedPreferences;
     final static int BC_PENDINGINTENT = 3;
@@ -90,14 +86,6 @@ public class MainActivity extends AppCompatActivity {
         shopButton = (ImageView) findViewById(R.id.iv_shopwht);
         settingsButton = (ImageView) findViewById(R.id.iv_settingswht);
 
-        playGameButtonOnClick = (ImageView) findViewById(R.id.iv_playgameblk);
-        shopButtonOnClick = (ImageView) findViewById(R.id.iv_shopblk);
-        settingsButtonOnClick = (ImageView) findViewById(R.id.iv_settingsblk);
-
-        /* hide onclick buttons**/
-        playGameButtonOnClick.setVisibility(View.INVISIBLE);
-        shopButtonOnClick.setVisibility(View.INVISIBLE);
-        settingsButtonOnClick.setVisibility(View.INVISIBLE);
 
         playGameButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -105,18 +93,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_POINTER_DOWN:
-
+                        playGameButton.setImageResource(R.drawable.playgame_btn_blk);
                         //=====Write down your Finger Pressed code here
-                        playGameButton.setVisibility(View.INVISIBLE);
-                        playGameButtonOnClick.setVisibility(View.VISIBLE);
                         return true;
 
                     case MotionEvent.ACTION_UP:
                     case MotionEvent.ACTION_POINTER_UP:
 
                         //=====Write down you code Finger Released code here
-                        playGameButtonOnClick.setVisibility(View.INVISIBLE);
-                        playGameButton.setVisibility(View.VISIBLE);
+                        playGameButton.setImageResource(R.drawable.playgame_btn);
                         // Get the solo preferences (only for this activity)
                         SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
                         if(!preferences.getBoolean("onboarding_complete",false)) {
@@ -143,16 +128,14 @@ public class MainActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_POINTER_DOWN:
 
                         //=====Write down your Finger Pressed code here
-                        shopButton.setVisibility(View.INVISIBLE);
-                        shopButtonOnClick.setVisibility(View.VISIBLE);
+                        shopButton.setImageResource(R.drawable.shop_btn_clk);
                         return true;
 
                     case MotionEvent.ACTION_UP:
                     case MotionEvent.ACTION_POINTER_UP:
 
                         //=====Write down you code Finger Released code here
-                        shopButtonOnClick.setVisibility(View.INVISIBLE);
-                        shopButton.setVisibility(View.VISIBLE);
+                        shopButton.setImageResource(R.drawable.shop_btn);
 
                         Intent intent=new Intent(MainActivity.this, ShopMainActivity.class);
                         startActivity(intent);
@@ -171,16 +154,14 @@ public class MainActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_POINTER_DOWN:
 
                         //=====Write down your Finger Pressed code here
-                        settingsButton.setVisibility(View.INVISIBLE);
-                        settingsButtonOnClick.setVisibility(View.VISIBLE);
+                        settingsButton.setImageResource(R.drawable.settings_btn_clk);
                         return true;
 
                     case MotionEvent.ACTION_UP:
                     case MotionEvent.ACTION_POINTER_UP:
 
                         //=====Write down you code Finger Released code here
-                        settingsButtonOnClick.setVisibility(View.INVISIBLE);
-                        settingsButton.setVisibility(View.VISIBLE);
+                        settingsButton.setImageResource(R.drawable.settings_btn);
 
                         Intent intent=new Intent(getApplicationContext(), SettingsDialogActivity.class);
                         startActivity(intent);
@@ -191,8 +172,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
 
 
     }
