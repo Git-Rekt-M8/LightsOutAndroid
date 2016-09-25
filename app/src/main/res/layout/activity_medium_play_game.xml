@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.koalition.edu.lightsout.EasyPlayGameActivity"
+    android:background="@drawable/gamehousenoroomswithpanel">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/house_design"/>
+
+    <!--<ImageView-->
+    <!--android:layout_width="720dip"-->
+    <!--android:layout_height="333dip"-->
+    <!--android:id="@+id/easy_house"-->
+    <!--android:src="@drawable/gamehousenorooms"-->
+    <!--android:visibility="invisible"-->
+    <!--android:layout_alignTop="@+id/iv_score_label"-->
+    <!--android:layout_alignParentStart="true" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_money_label"
+                    android:src="@drawable/peso_icon"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:text="100"
+                    android:textColor="#fafaf9"
+                    android:textSize="30sp"
+                    android:id="@+id/tv_money"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="50dip"
+                    android:layout_height="50dip"
+                    android:id="@+id/iv_score_label"
+                    android:src="@drawable/light_bulb_icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="#fafaf9"
+                    android:textSize="30sp"
+                    android:id="@+id/tv_easy_score"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="8">
+                <!--POWERUPS-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20"
+                        android:textColor="#fafaf9"
+                        android:textSize="25sp"
+                        android:id="@+id/tv_freeze_count" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:id="@+id/iv_freeze_time"
+                        android:src="@drawable/freeze_game_btn"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20"
+                        android:textColor="#fafaf9"
+                        android:textSize="25sp"
+                        android:id="@+id/tv_brown_out_count" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:id="@+id/iv_brown_out"
+                        android:src="@drawable/brownout_game_btn" />
+                </LinearLayout>
+                <!--POWERUPS-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp"
+                android:orientation="vertical"
+                android:layout_weight="20">
+                <!--ROOMS-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/easy_room1"
+                        android:src="@drawable/roomplaceholder4" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:id="@+id/easy_room2"
+                        android:src="@drawable/roomplaceholder4" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/easy_room3"
+                        android:src="@drawable/roomplaceholder4" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:id="@+id/easy_room4"
+                        android:src="@drawable/roomplaceholder4" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:id="@+id/easy_room5"
+                        android:src="@drawable/roomplaceholder4" />
+
+                </LinearLayout>
+                <!--ROOMS-->
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="150dp"
+            android:orientation="horizontal">
+            <!-- BUTTONS -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/easy_button1"
+                android:src="@drawable/switchoff" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/easy_button2"
+                android:src="@drawable/switchoff" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/easy_button3"
+                android:src="@drawable/switchoff" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/easy_button4"
+                android:src="@drawable/switchoff" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/easy_button5"
+                android:src="@drawable/switchoff" />
+            <!-- BUTTONS -->
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--streak text-->
+
+    <TextView
+        android:id="@+id/center_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="#fafaf9"
+        android:text="random text"
+        android:textSize="40sp"/>
+
+
+    <!--OVERLAYS-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-1"
+        android:textColor="#f0f079"
+        android:textSize="20sp"
+        android:id="@+id/tv_deduction" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:id="@+id/freeze_screen"
+        android:src="@drawable/freeze_screen"/>
+
+
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:scaleType="fitCenter"-->
+    <!--android:id="@+id/streak_view"/>-->
+    <!--android:src="@drawable/streak5_txt"-->
+
+    <!--OVERLAYS-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=""-->
+    <!--android:textColor="#fafaf9"-->
+    <!--android:textSize="40sp"-->
+    <!--android:id="@+id/tv_time"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignStart="@+id/easy_room1" />-->
+
+</RelativeLayout>

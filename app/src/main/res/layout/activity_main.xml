@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.fullscreen.MainActivity"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    >
+
+
+    <ImageView
+        android:layout_weight="14"
+        android:id="@+id/iv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/title"/>
+
+    <ImageView
+        android:layout_weight="2"
+        android:id="@+id/iv_playgamewht"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/playgame_btn"/>
+
+
+    <ImageView
+        android:layout_weight="2"
+        android:id="@+id/iv_shopwht"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/shop_btn"/>
+
+
+    <ImageView
+        android:layout_weight="2"
+        android:id="@+id/iv_settingswht"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
+        android:src="@drawable/settings_btn" />
+
+
+
+</LinearLayout>
