@@ -85,6 +85,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return powerupArrayList;
     }
+    public ArrayList<PowerUp> queryAllDesigns(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(PowerUp.TABLE_NAME, null,
+                PowerUp.COLUMN_CATEGORY + " =? ", new String[]{String.valueOf(1)},
+                null, null, null);
+
+        ArrayList<PowerUp> powerupArrayList = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                PowerUp powerUp = new PowerUp();
+                powerUp.setId(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_ID)));
+                powerUp.setTitle(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_TITLE)));
+                powerUp.setPrice(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_PRICE)));
+                powerupArrayList.add(powerUp);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return powerupArrayList;
+    }
 
     public void deleteAll() {
         SQLiteDatabase db = getWritableDatabase();

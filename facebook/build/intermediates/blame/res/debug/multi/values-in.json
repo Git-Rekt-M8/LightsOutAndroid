@@ -22,29 +22,5 @@
                 }
             }
         ]
-    },
-    {
-        "outputFile": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\values-in\\values-in.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 60,
-                    "endOffset": 111
-                },
-                "from": {
-                    "file": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\values-in\\messenger_button_strings.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 2,
-                        "startOffset": 1186,
-                        "endColumn": 58,
-                        "endOffset": 1242
-                    }
-                }
-            }
-        ]
     }
 ]

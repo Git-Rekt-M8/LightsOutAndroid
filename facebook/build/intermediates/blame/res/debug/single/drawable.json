@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_selector.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\messenger_button_white_bg_selector.xml"
-    },
-    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_like_background.xml",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable\\com_facebook_button_like_background.xml"
     },
@@ -12,28 +8,12 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable\\com_facebook_button_send_background.xml"
     },
     {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_background.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\com_facebook_button_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_send_background.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\com_facebook_button_send_background.xml"
-    },
-    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_login_silver_background.xml",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable\\com_facebook_button_login_silver_background.xml"
     },
     {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_like_background.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\com_facebook_button_like_background.xml"
-    },
-    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_background.xml",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable\\com_facebook_button_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_login_silver_background.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\com_facebook_button_login_silver_background.xml"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_selector.xml",
@@ -48,19 +28,7 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable\\messenger_button_blue_bg_round.xml"
     },
     {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_round.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\messenger_button_blue_bg_round.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_round.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\messenger_button_white_bg_round.xml"
-    },
-    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_round.xml",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable\\messenger_button_white_bg_round.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_selector.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable\\messenger_button_blue_bg_selector.xml"
     }
 ]

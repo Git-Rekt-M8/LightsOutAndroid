@@ -10,6 +10,10 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,13 +23,10 @@ import android.widget.Toast;
 public class DesignListActivity extends Activity {
 
     DatabaseHelper dbHelper;
-    ImageView designHead;
-    ImageView backButton;
-    ImageView backButtonOnClick;
-    ImageView greenHouseButton;
-    //ImageView freezePowerUpButtonOnClick;
-    ImageView nipaHutButton;
-    //ImageView brownoutPowerUpButtonOnClick;
+    TextView designUpHead;
+    TextView backButton;
+    TextView designTitle;
+    TextView designCost;
 
     TextView playerBalance;
 
@@ -33,6 +34,9 @@ public class DesignListActivity extends Activity {
     Typeface pixelFont;
 
     SharedPreferences sharedPreferences;
+
+    RecyclerView recyclerView;
+    PowerupAdapter powerupAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +47,43 @@ public class DesignListActivity extends Activity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        designHead = (ImageView) findViewById(R.id.iv_design_header);
-        backButton = (ImageView) findViewById(R.id.back_button);;
-        backButtonOnClick = (ImageView) findViewById(R.id.back_button_clicked);;
-        greenHouseButton = (ImageView) findViewById(R.id.iv_green_house_btn);;
-        //freezePowerUpButtonOnClick = (ImageView) findViewById(R.id.freeze_powerup_cliicked);;
-        nipaHutButton = (ImageView) findViewById(R.id.iv_nipa_hut_btn);;
-        //brownoutPowerUpButtonOnClick = (ImageView) findViewById(R.id.brownout_powerup_clicked);
+        designUpHead = (TextView) findViewById(R.id.design_head);
+        backButton = (TextView) findViewById(R.id.back_button_shop);
+
+        //unsure test
+        final LayoutInflater factory = getLayoutInflater();
+
+        final View textEntryView = factory.inflate(R.layout.list_item_powerup, null);
+
+        designTitle = (TextView) textEntryView.findViewById(R.id.powerup_title);
+        designCost = (TextView) textEntryView.findViewById(R.id.powerup_cost);
 
         playerBalance = (TextView) findViewById(R.id.player_balance);
 
         pixelFont = Typeface.createFromAsset(getAssets(),"fonts/pixelmix.ttf");
         playerBalance.setTypeface(pixelFont);
+        designUpHead.setTypeface(pixelFont);
+        backButton.setTypeface(pixelFont);
+        designTitle.setTypeface(pixelFont);
+        designCost.setTypeface(pixelFont);
+
+        // Step 1: create recycler view
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview_design);
+
+        // Step 3: Create our adapter
+        powerupAdapter = new PowerupAdapter(dbHelper.queryAllDesigns());
+
+        // Step 4: Attach adapter to UI
+        recyclerView.setAdapter(powerupAdapter);
+
+        // Step 5: Attach layout manager to UI
+        recyclerView.setLayoutManager(
+                new StaggeredGridLayoutManager(
+                        3, StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
 
-        /* hide onclick buttons**/
+/*        *//* hide onclick buttons**//*
 //        freezePowerUpButtonOnClick.setVisibility(View.INVISIBLE);
 //        brownoutPowerUpButtonOnClick.setVisibility(View.INVISIBLE);
 //        backButtonOnClick.setVisibility(View.INVISIBLE);
@@ -150,7 +176,7 @@ public class DesignListActivity extends Activity {
                 return false;
 
             }
-        });
+        });*/
 
         backButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -160,16 +186,16 @@ public class DesignListActivity extends Activity {
                     case MotionEvent.ACTION_POINTER_DOWN:
 
                         //=====Write down your Finger Pressed code here
-                        backButton.setVisibility(View.INVISIBLE);
-                        backButtonOnClick.setVisibility(View.VISIBLE);
+                        backButton.setTextColor(getResources().getColor(R.color.pressedText));
+                        //backButtonOnClick.setVisibility(View.VISIBLE); change color
                         return true;
 
                     case MotionEvent.ACTION_UP:
                     case MotionEvent.ACTION_POINTER_UP:
 
                         //=====Write down you code Finger Released code here
-                        backButtonOnClick.setVisibility(View.INVISIBLE);
-                        backButton.setVisibility(View.VISIBLE);
+                        //backButtonOnClick.setVisibility(View.INVISIBLE); change back color
+                        backButton.setTextColor(getResources().getColor(R.color.notPressedText));
 
                         finish();
                         return true;

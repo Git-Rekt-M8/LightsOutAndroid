@@ -1,17 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_small.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\messenger_button_send_blue_small.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_large.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\messenger_button_send_blue_large.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_round.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\messenger_button_send_blue_round.xml"
-    },
-    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_activity_layout.xml",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\layout\\com_facebook_activity_layout.xml"
     },
@@ -20,36 +8,12 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\layout\\messenger_button_send_white_round.xml"
     },
     {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_activity_layout.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\com_facebook_activity_layout.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_large.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\messenger_button_send_white_large.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_small.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\messenger_button_send_white_small.xml"
-    },
-    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_small.xml",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\layout\\messenger_button_send_white_small.xml"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_large.xml",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\layout\\messenger_button_send_white_large.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_tooltip_bubble.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\com_facebook_tooltip_bubble.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_login_fragment.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\com_facebook_login_fragment.xml"
-    },
-    {
-        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_round.xml",
-        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\layout\\messenger_button_send_white_round.xml"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_small.xml",
