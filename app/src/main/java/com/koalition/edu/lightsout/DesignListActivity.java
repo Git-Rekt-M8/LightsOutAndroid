@@ -25,8 +25,6 @@ public class DesignListActivity extends Activity {
     DatabaseHelper dbHelper;
     TextView designUpHead;
     TextView backButton;
-    TextView designTitle;
-    TextView designCost;
 
     TextView playerBalance;
 
@@ -55,8 +53,6 @@ public class DesignListActivity extends Activity {
 
         final View textEntryView = factory.inflate(R.layout.list_item_powerup, null);
 
-        designTitle = (TextView) textEntryView.findViewById(R.id.powerup_title);
-        designCost = (TextView) textEntryView.findViewById(R.id.powerup_cost);
 
         playerBalance = (TextView) findViewById(R.id.player_balance);
 
@@ -64,8 +60,6 @@ public class DesignListActivity extends Activity {
         playerBalance.setTypeface(pixelFont);
         designUpHead.setTypeface(pixelFont);
         backButton.setTypeface(pixelFont);
-        designTitle.setTypeface(pixelFont);
-        designCost.setTypeface(pixelFont);
 
         // Step 1: create recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_design);

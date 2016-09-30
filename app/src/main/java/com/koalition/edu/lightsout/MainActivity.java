@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
             dbHelper.deleteAll();
             dbHelper.insertPowerUp(new PowerUp(1, "Freeze Time", 300, 0, "@drawable/freezeshopicon"));
             dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon"));
-            dbHelper.insertPowerUp(new PowerUp(3, "Green House", 3000, 1, "none"));
-            dbHelper.insertPowerUp(new PowerUp(4, "Nipa Hut", 5000, 1, "none"));
+            dbHelper.insertPowerUp(new PowerUp(3, "Green House", 3000, 1, "@drawable/greenhouseicon"));
+            dbHelper.insertPowerUp(new PowerUp(4, "Nipa Hut", 5000, 1, "@drawable/nipahuticon"));
 
 
             editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
