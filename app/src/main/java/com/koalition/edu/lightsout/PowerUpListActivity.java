@@ -25,8 +25,6 @@ public class PowerUpListActivity extends Activity {
     DatabaseHelper dbHelper;
     TextView powerUpHead;
     TextView backButton;
-    TextView powerupTitle;
-    TextView powerupCost;
 
     TextView playerBalance;
 
@@ -54,8 +52,6 @@ public class PowerUpListActivity extends Activity {
 
         final View textEntryView = factory.inflate(R.layout.list_item_powerup, null);
 
-        powerupTitle = (TextView) textEntryView.findViewById(R.id.powerup_title);
-        powerupCost = (TextView) textEntryView.findViewById(R.id.powerup_cost);
 
         playerBalance = (TextView) findViewById(R.id.player_balance);
 
@@ -63,14 +59,12 @@ public class PowerUpListActivity extends Activity {
         playerBalance.setTypeface(pixelFont);
         powerUpHead.setTypeface(pixelFont);
         backButton.setTypeface(pixelFont);
-        powerupTitle.setTypeface(pixelFont);
-        powerupCost.setTypeface(pixelFont);
 
         // Step 1: create recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_powerup);
 
         // Step 3: Create our adapter
-        powerupAdapter = new PowerupAdapter(dbHelper.queryAllPowerups());
+        powerupAdapter = new PowerupAdapter(dbHelper.queryAllPowerups(), getBaseContext());
 
         // Step 4: Attach adapter to UI
         recyclerView.setAdapter(powerupAdapter);

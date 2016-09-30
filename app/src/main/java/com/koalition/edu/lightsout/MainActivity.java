@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.mainmenu);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
@@ -57,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
         if(!preferences.getBoolean("onboarding_complete",false)) {
             dbHelper = new DatabaseHelper(getBaseContext());
             dbHelper.deleteAll();
-            dbHelper.insertPowerUp(new PowerUp(1, "Freeze Time", 300, 0));
-            dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0));
-            dbHelper.insertPowerUp(new PowerUp(3, "Green House", 3000, 1));
-            dbHelper.insertPowerUp(new PowerUp(4, "Nipa Hut", 5000, 1));
+            dbHelper.insertPowerUp(new PowerUp(1, "Freeze Time", 300, 0, "@drawable/freezeshopicon"));
+            dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon"));
+            dbHelper.insertPowerUp(new PowerUp(3, "Green House", 3000, 1, "none"));
+            dbHelper.insertPowerUp(new PowerUp(4, "Nipa Hut", 5000, 1, "none"));
 
 
             editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0

@@ -71,7 +71,7 @@ public class DesignListActivity extends Activity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_design);
 
         // Step 3: Create our adapter
-        powerupAdapter = new PowerupAdapter(dbHelper.queryAllDesigns());
+        powerupAdapter = new PowerupAdapter(dbHelper.queryAllDesigns(), getBaseContext());
 
         // Step 4: Attach adapter to UI
         recyclerView.setAdapter(powerupAdapter);
