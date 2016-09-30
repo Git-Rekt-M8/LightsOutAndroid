@@ -844,6 +844,10 @@ public class MediumPlayGameActivity extends Activity {
         running = false;
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     //    @Override
 //    public void onStart() {
 //        super.onStart();

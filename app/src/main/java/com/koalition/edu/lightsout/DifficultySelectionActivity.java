@@ -37,6 +37,7 @@ public class DifficultySelectionActivity extends Activity {
         easyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent startEasyGameIntent = new Intent(getBaseContext(), EasyPlayGameActivity.class);
                 startActivity(startEasyGameIntent);
             }
@@ -45,6 +46,7 @@ public class DifficultySelectionActivity extends Activity {
         mediumTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent startMediumGameIntent = new Intent(getBaseContext(), MediumPlayGameActivity.class);
                 startActivity(startMediumGameIntent);
             }
@@ -53,6 +55,7 @@ public class DifficultySelectionActivity extends Activity {
         hardTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent startInsaneGameIntent = new Intent(getBaseContext(), InsanePlayGameActivity.class);
                 startActivity(startInsaneGameIntent);
             }
