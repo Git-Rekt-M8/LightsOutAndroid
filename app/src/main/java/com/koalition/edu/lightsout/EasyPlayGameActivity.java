@@ -625,6 +625,8 @@ public class EasyPlayGameActivity extends Activity {
                     }
                 }
 
+                if(moneyValue < 0)
+                    moneyValue = 0;
 
                 updateHUD(moneyValue, scoreValue);
 

@@ -769,6 +769,9 @@ public class InsanePlayGameActivity extends Activity {
                     }
                 }
 
+                if(moneyValue < 0)
+                    moneyValue = 0;
+
                 updateHUD(moneyValue, scoreValue);
 
                 int timeToReact = 1000;
