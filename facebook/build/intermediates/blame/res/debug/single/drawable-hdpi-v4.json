@@ -4,48 +4,32 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_button_send_icon.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_background.9.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_background.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_background.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_button_like_icon_selected.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_blue.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\messenger_bubble_small_blue.png"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_bottomnub.png"
     },
     {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_close.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_close.png"
+    },
+    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_button_send_round_shadow.png",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\messenger_button_send_round_shadow.png"
+    },
+    {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_topnub.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_bottomnub.png"
-    },
-    {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_icon.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_button_icon.png"
-    },
-    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_icon.png",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_button_icon.png"
-    },
-    {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_close.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_close.png"
-    },
-    {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_blue.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\messenger_bubble_large_blue.png"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png",
@@ -64,6 +48,10 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_xout.png"
     },
     {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_background.9.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_background.9.png"
+    },
+    {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_white.png",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\messenger_bubble_large_white.png"
     },
@@ -72,20 +60,36 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_background.9.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_send_icon.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_button_send_icon.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_bottomnub.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_white.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\messenger_bubble_small_white.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_xout.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_xout.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_button_send_round_shadow.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\messenger_button_send_round_shadow.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_topnub.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_white.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\messenger_bubble_large_white.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_white.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\messenger_bubble_large_white.png"
+    },
+    {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_button_send_round_shadow.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\messenger_button_send_round_shadow.png"
+    },
+    {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_bottomnub.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_bottomnub.png"
+    },
+    {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_like_icon_selected.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_button_like_icon_selected.png"
+    },
+    {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_white.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\messenger_bubble_small_white.png"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_blue.png",
@@ -100,24 +104,16 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\messenger_bubble_small_white.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_xout.png"
-    },
-    {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_small_blue.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\messenger_bubble_small_blue.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_send_icon.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_button_send_icon.png"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png",
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_topnub.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_xout.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_xout.png"
-    },
-    {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_topnub.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_topnub.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_xout.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_xout.png"
     },
     {
         "merged": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_close.png",
@@ -128,11 +124,15 @@
         "source": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_background.9.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_black_topnub.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_black_topnub.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_blue.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\messenger_bubble_large_blue.png"
     },
     {
-        "merged": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_bottomnub.png",
-        "source": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_bottomnub.png"
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_button_icon.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_button_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\com_facebook_tooltip_blue_background.9.png",
+        "source": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\drawable-hdpi\\com_facebook_tooltip_blue_background.9.png"
     }
 ]

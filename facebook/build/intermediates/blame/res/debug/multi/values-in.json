@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\values-in\\values-in.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 60,
-                    "endOffset": 111
-                },
-                "from": {
-                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-in\\messenger_button_strings.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 2,
-                        "startOffset": 1186,
-                        "endColumn": 58,
-                        "endOffset": 1242
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "C:\\Users\\KingstonAnthony\\Desktop\\Lights Out Android\\LightsOutAndroid-master\\facebook\\build\\intermediates\\res\\merged\\debug\\values-in\\values-in.xml",
         "map": [
             {
@@ -42,6 +18,30 @@
                         "startOffset": 1164,
                         "endColumn": 58,
                         "endOffset": 1220
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\build\\intermediates\\res\\merged\\debug\\values-in\\values-in.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 60,
+                    "endOffset": 111
+                },
+                "from": {
+                    "file": "C:\\Users\\John\\Documents\\Android Projects\\Lights Out Android 9.26\\facebook\\res\\values-in\\messenger_button_strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 2,
+                        "startOffset": 1186,
+                        "endColumn": 58,
+                        "endOffset": 1242
                     }
                 }
             }
