@@ -158,8 +158,8 @@ public class EasyPlayGameActivity extends Activity {
         currentDesign = sharedPreferences.getInt("CurrentDesign", 0);
         switch (currentDesign) {
             case 0: break;
-            case 1: designImageView.setImageResource(R.drawable.green_custom); break;
-            case 2: designImageView.setImageResource(R.drawable.nipa_custom);break;
+            case 3: designImageView.setImageResource(R.drawable.green_custom); break;
+            case 4: designImageView.setImageResource(R.drawable.nipa_custom);break;
         }
 
         numOfRooms = 4;
@@ -625,6 +625,8 @@ public class EasyPlayGameActivity extends Activity {
                     }
                 }
 
+                if(moneyValue < 0)
+                    moneyValue = 0;
 
                 updateHUD(moneyValue, scoreValue);
 

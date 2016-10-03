@@ -46,33 +46,19 @@
 
     </LinearLayout>
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/shop_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_weight="1"
-            android:id="@+id/shop_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Power-ups"
-            android:textSize="60sp"
-            android:textColor="#f7f7f9"
-            android:gravity="center"/>
-
-    </LinearLayout>
+        android:text="Power-ups"
+        android:textSize="60sp"
+        android:textColor="#f7f7f9"
+        android:gravity="center"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerview_powerup"/>
-
-
-
-
-
-
-
 
 </LinearLayout>
