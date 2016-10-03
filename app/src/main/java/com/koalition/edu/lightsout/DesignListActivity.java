@@ -48,12 +48,6 @@ public class DesignListActivity extends Activity {
         designUpHead = (TextView) findViewById(R.id.design_head);
         backButton = (TextView) findViewById(R.id.back_button_shop);
 
-        //unsure test
-        final LayoutInflater factory = getLayoutInflater();
-
-        final View textEntryView = factory.inflate(R.layout.list_item_powerup, null);
-
-
         playerBalance = (TextView) findViewById(R.id.player_balance);
 
         pixelFont = Typeface.createFromAsset(getAssets(),"fonts/pixelmix.ttf");
@@ -65,7 +59,7 @@ public class DesignListActivity extends Activity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_design);
 
         // Step 3: Create our adapter
-        powerupAdapter = new PowerupAdapter(dbHelper.queryAllDesigns(), getBaseContext());
+        powerupAdapter = new PowerupAdapter(dbHelper.queryAllDesigns(), this);
 
         // Step 4: Attach adapter to UI
         recyclerView.setAdapter(powerupAdapter);

@@ -3,5 +3,5 @@
     <item name="key_item_position" type="id"/>
     <item name="key_item_text" type="id"/>
     <item name="key_item_holder" type="id"/>
-    <item name="key_item_power" type="id"/>
+    <item name="key_item_powerup" type="id"/>
 </resources>

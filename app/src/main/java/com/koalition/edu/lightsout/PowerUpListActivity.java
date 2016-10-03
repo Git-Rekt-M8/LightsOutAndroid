@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -48,9 +49,9 @@ public class PowerUpListActivity extends Activity {
         backButton = (TextView) findViewById(R.id.back_button_shop);
 
         //unsure test
-        final LayoutInflater factory = getLayoutInflater();
-
-        final View textEntryView = factory.inflate(R.layout.list_item_powerup, null);
+//        final LayoutInflater factory = getLayoutInflater();
+//
+//        final View textEntryView = factory.inflate(R.layout.list_item_powerup, null);
 
 
         playerBalance = (TextView) findViewById(R.id.player_balance);
@@ -64,7 +65,7 @@ public class PowerUpListActivity extends Activity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_powerup);
 
         // Step 3: Create our adapter
-        powerupAdapter = new PowerupAdapter(dbHelper.queryAllPowerups(), getBaseContext());
+        powerupAdapter = new PowerupAdapter(dbHelper.queryAllPowerups(), this);
 
         // Step 4: Attach adapter to UI
         recyclerView.setAdapter(powerupAdapter);
