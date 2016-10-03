@@ -328,5 +328,335 @@
                 }
             }
         ]
+    },
+    {
+        "outputFile": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\build\\intermediates\\res\\merged\\debug\\values-af\\values-af.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 3,
+                    "endColumn": 23,
+                    "endOffset": 170
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 4,
+                        "startOffset": 2324,
+                        "endLine": 36,
+                        "endColumn": 23,
+                        "endOffset": 2440
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 175,
+                    "endColumn": 124,
+                    "endOffset": 295
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 2065,
+                        "endColumn": 124,
+                        "endOffset": 2185
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 300,
+                    "endColumn": 93,
+                    "endOffset": 389
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 1970,
+                        "endColumn": 93,
+                        "endOffset": 2059
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 394,
+                    "endColumn": 66,
+                    "endOffset": 456
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1260,
+                        "endColumn": 66,
+                        "endOffset": 1322
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 461,
+                    "endColumn": 70,
+                    "endOffset": 527
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1188,
+                        "endColumn": 70,
+                        "endOffset": 1254
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 532,
+                    "endColumn": 61,
+                    "endOffset": 589
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 1907,
+                        "endColumn": 61,
+                        "endOffset": 1964
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 594,
+                    "endColumn": 75,
+                    "endOffset": 665
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 1830,
+                        "endColumn": 75,
+                        "endOffset": 1901
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 670,
+                    "endColumn": 73,
+                    "endOffset": 739
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1403,
+                        "endColumn": 73,
+                        "endOffset": 1472
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 744,
+                    "endColumn": 91,
+                    "endOffset": 831
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1478,
+                        "endColumn": 91,
+                        "endOffset": 1565
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 836,
+                    "endColumn": 73,
+                    "endOffset": 905
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1755,
+                        "endColumn": 73,
+                        "endOffset": 1824
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 910,
+                    "endColumn": 73,
+                    "endOffset": 979
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1328,
+                        "endColumn": 73,
+                        "endOffset": 1397
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 984,
+                    "endColumn": 82,
+                    "endOffset": 1062
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1571,
+                        "endColumn": 82,
+                        "endOffset": 1649
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1067,
+                    "endColumn": 98,
+                    "endOffset": 1161
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1655,
+                        "endColumn": 98,
+                        "endOffset": 1749
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1166,
+                    "endColumn": 63,
+                    "endOffset": 1225
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 2511,
+                        "endColumn": 63,
+                        "endOffset": 2570
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1230,
+                    "endColumn": 63,
+                    "endOffset": 1289
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 37,
+                        "startColumn": 4,
+                        "startOffset": 2446,
+                        "endColumn": 63,
+                        "endOffset": 2505
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1294,
+                    "endColumn": 131,
+                    "endOffset": 1421
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\strings.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 2191,
+                        "endColumn": 131,
+                        "endOffset": 2318
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1426,
+                    "endColumn": 60,
+                    "endOffset": 1482
+                },
+                "from": {
+                    "file": "C:\\Users\\Jolo Simeon\\Projects\\LightsOut-HalaNapundi\\facebook\\res\\values-af\\messenger_button_strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 2,
+                        "startOffset": 1186,
+                        "endColumn": 58,
+                        "endOffset": 1242
+                    }
+                }
+            }
+        ]
     }
 ]

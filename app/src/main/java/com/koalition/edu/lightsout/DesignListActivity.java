@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -204,6 +205,8 @@ public class DesignListActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
+        AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
+
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         playerBalance.setText(String.valueOf(sharedPreferences.getInt("Coins", 0)));
@@ -237,4 +240,9 @@ public class DesignListActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AudioPlayer.pauseMusic();
+    }
 }

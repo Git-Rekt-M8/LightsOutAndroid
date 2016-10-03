@@ -102,6 +102,47 @@ public class SettingsDialogActivity extends Activity {
             sound_fx_status.setImageResource(R.drawable.setting_not);
         }
 
+        music_status.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+
+                        //=====Write down your Finger Pressed code here
+                        if (isMusic) {
+                            music_status.setImageResource(R.drawable.setting_not);
+                        } else {
+                            music_status.setImageResource(R.drawable.setting_check);
+                        }
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_POINTER_UP:
+
+                        //=====Write down you code Finger Released code here
+                        if (isMusic) {
+                            editor.putBoolean("Music", false);
+                            isMusic = false;
+                            editor.commit();
+                            editor.apply();
+                            AudioPlayer.pauseMusic();
+                        } else {
+                            editor.putBoolean("Music", true);
+                            isMusic = true;
+                            editor.commit();
+                            editor.apply();
+                            AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
+                        }
+
+
+                        return true;
+                }
+                return false;
+
+            }
+        });
+
         music.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -124,9 +165,50 @@ public class SettingsDialogActivity extends Activity {
                         if (isMusic) {
                             editor.putBoolean("Music", false);
                             isMusic = false;
+                            editor.commit();
+                            editor.apply();
+                            AudioPlayer.pauseMusic();
                         } else {
                             editor.putBoolean("Music", true);
                             isMusic = true;
+                            editor.commit();
+                            editor.apply();
+                            AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
+                        }
+
+
+                        return true;
+                }
+                return false;
+
+            }
+        });
+
+        sounds_fx.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+
+                        //=====Write down your Finger Pressed code here
+                        if (isSoundFX) {
+                            sound_fx_status.setImageResource(R.drawable.setting_not);
+                        } else {
+                            sound_fx_status.setImageResource(R.drawable.setting_check);
+                        }
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_POINTER_UP:
+
+                        //=====Write down you code Finger Released code here
+                        if (isSoundFX) {
+                            editor.putBoolean("SoundFX", false);
+                            isSoundFX = false;
+                        } else {
+                            editor.putBoolean("SoundFX", true);
+                            isSoundFX = true;
                         }
 
                         editor.commit();
@@ -138,7 +220,7 @@ public class SettingsDialogActivity extends Activity {
             }
         });
 
-        sounds_fx.setOnTouchListener(new View.OnTouchListener() {
+        sound_fx_status.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
@@ -268,6 +350,7 @@ public class SettingsDialogActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
         // Get the shared preferences
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -295,6 +378,12 @@ public class SettingsDialogActivity extends Activity {
             Toast.makeText(getBaseContext(), "YOU GET FREE 100 Coins",
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AudioPlayer.pauseMusic();
     }
 }
 

@@ -34,10 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.mainmenu);
-        mediaPlayer.setLooping(true);
-        mediaPlayer.start();
-
         // Get the solo preferences (only for this activity)
         SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
         // Get the shared preferences
@@ -190,22 +186,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("iyak if false: " + sharedPreferences.contains("Music"));
         System.out.println("free coins dapat true: " + sharedPreferences.contains("getsFreeCoins"));
 
-        // MUSIC TUGS TUGS
-
-        if(sharedPreferences.getBoolean("Music", false)) {
-//                mediaPlayer.setOnPreparedListener(this);
-//                mediaPlayer.prepareAsync();
-//            if(!mediaPlayer.isPlaying())
-            mediaPlayer.setVolume(1.0f,1.0f);
-
-        } else
-        {
-            mediaPlayer.setVolume(0.0f, 0.0f);
-//            mediaPlayer.stop();
-//            mediaPlayer.reset();
-
-//            mediaPlayer.release();
-        }
+        AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
 
         // check if new coins
         if(sharedPreferences.getBoolean("getsFreeCoins", false)){
@@ -257,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        AudioPlayer.pauseMusic();
         MyApplication.activityPaused();
     }
 
