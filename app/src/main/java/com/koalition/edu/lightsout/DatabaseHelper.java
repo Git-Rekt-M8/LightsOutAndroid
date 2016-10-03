@@ -80,6 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 powerUp.setId(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_ID)));
                 powerUp.setTitle(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_TITLE)));
                 powerUp.setPrice(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_PRICE)));
+                powerUp.setCategory(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_CATEGORY)));
                 powerUp.setIconTite(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_ICONTITLE)));
                 powerupArrayList.add(powerUp);
             }while(cursor.moveToNext());
@@ -101,6 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 powerUp.setId(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_ID)));
                 powerUp.setTitle(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_TITLE)));
                 powerUp.setPrice(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_PRICE)));
+                powerUp.setCategory(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_CATEGORY)));
                 powerUp.setIconTite(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_ICONTITLE)));
                 powerupArrayList.add(powerUp);
             }while(cursor.moveToNext());
