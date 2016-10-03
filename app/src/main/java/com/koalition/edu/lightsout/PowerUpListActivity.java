@@ -193,6 +193,8 @@ public class PowerUpListActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
+        AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
+
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         playerBalance.setText(String.valueOf(sharedPreferences.getInt("Coins", 0)));
@@ -226,4 +228,9 @@ public class PowerUpListActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AudioPlayer.pauseMusic();
+    }
 }
