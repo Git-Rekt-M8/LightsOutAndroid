@@ -1,5 +1,6 @@
 package com.koalition.edu.lightsout;
 
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -104,12 +106,33 @@ public class EasyPlayGameActivity extends Activity {
      */
     //private GoogleApiClient client;
 
+    ValueAnimator animator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy_play_game);
-        mediaPlayer = MediaPlayer.create(EasyPlayGameActivity.this, R.raw.mainmenu);
+
+        final ImageView backgroundOne = (ImageView) findViewById(R.id.background_sky1);
+        final ImageView backgroundTwo = (ImageView) findViewById(R.id.background_sky2);
+
+        animator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(80000L);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = backgroundOne.getWidth();
+                final float translationX = width * progress;
+                backgroundOne.setTranslationX(translationX);
+                backgroundTwo.setTranslationX(translationX - width);
+            }
+        });
+        animator.start();
+
+        AudioPlayer.playMusic(getApplicationContext(), R.raw.chill);
         running = true;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
@@ -180,8 +203,7 @@ public class EasyPlayGameActivity extends Activity {
         statusRandom = new Random();
         // timer for randomizing every randomizeSpeed
         time = 0;
-        randomizeLitRoomHandler.postDelayed(randomizeLitRoomRunnable, 0);
-        hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
+
         refreshSwitches();
 
 
@@ -197,6 +219,7 @@ public class EasyPlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(0).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -207,6 +230,7 @@ public class EasyPlayGameActivity extends Activity {
 
                         } else if (switches.get(0).isRoomState() == false) {
                             streakValue = 0;
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             switches.get(0).setRoomState(true);
                             turnOnRoom(switches.get(0).getRoomNumber());
@@ -242,6 +266,7 @@ public class EasyPlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(1).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -255,6 +280,8 @@ public class EasyPlayGameActivity extends Activity {
 
                             switches.get(1).setRoomState(true);
                             turnOnRoom(switches.get(1).getRoomNumber());
+
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -287,6 +314,7 @@ public class EasyPlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(2).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -300,6 +328,7 @@ public class EasyPlayGameActivity extends Activity {
 
                             switches.get(2).setRoomState(true);
                             turnOnRoom(switches.get(2).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -331,6 +360,7 @@ public class EasyPlayGameActivity extends Activity {
                         if (switches.get(3).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(3).getIsSwitchedByAI() == true) {
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 scoreValue += POINTS_GAINED;
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -345,6 +375,7 @@ public class EasyPlayGameActivity extends Activity {
 
                             switches.get(3).setRoomState(true);
                             turnOnRoom(switches.get(3).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -615,6 +646,8 @@ public class EasyPlayGameActivity extends Activity {
                 if( RANDOMIZE_COUNTER>0 ) {
                     if (moneyValue < STARTING_COINS / 2) {
                         centerTextView.setText("Everything is different now...");
+                        AudioPlayer.playMusic(getApplicationContext(), R.raw.intense);
+                        animator.setDuration(5000L);
                         centerTextView.startAnimation(freezeFadeoutAnim);
                         centerTextView.setVisibility(View.INVISIBLE);
                         //randomizeAllRoomStatus();
@@ -779,6 +812,22 @@ public class EasyPlayGameActivity extends Activity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AudioPlayer.resumeMusic();
+        randomizeLitRoomHandler.postDelayed(randomizeLitRoomRunnable, 0);
+        hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AudioPlayer.pauseMusic();
+        hudUpdateHandler.removeCallbacks(hudUpdateRunnable);
+        randomizeLitRoomHandler.removeCallbacks(randomizeLitRoomRunnable);
     }
 
     //    @Override

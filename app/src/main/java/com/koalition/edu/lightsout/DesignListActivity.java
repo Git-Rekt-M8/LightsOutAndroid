@@ -80,7 +80,7 @@ public class DesignListActivity extends Activity {
         greenHouseButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                switchsfx (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_POINTER_DOWN:
 
@@ -125,7 +125,7 @@ public class DesignListActivity extends Activity {
         nipaHutButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                switchsfx (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_POINTER_DOWN:
 
@@ -186,7 +186,12 @@ public class DesignListActivity extends Activity {
                         //backButtonOnClick.setVisibility(View.INVISIBLE); change back color
                         backButton.setTextColor(getResources().getColor(R.color.notPressedText));
 
+                        Intent intent = new Intent(getApplicationContext(), ShopMainActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         finish();
+
+
                         return true;
                 }
                 return false;

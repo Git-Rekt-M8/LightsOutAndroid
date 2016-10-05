@@ -1,5 +1,6 @@
 package com.koalition.edu.lightsout;
 
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -105,12 +107,33 @@ public class MediumPlayGameActivity extends Activity {
      */
     //private GoogleApiClient client;
 
+    ValueAnimator animator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medium_play_game);
-        mediaPlayer = MediaPlayer.create(MediumPlayGameActivity.this, R.raw.mainmenu);
+
+        final ImageView backgroundOne = (ImageView) findViewById(R.id.background_sky1);
+        final ImageView backgroundTwo = (ImageView) findViewById(R.id.background_sky2);
+
+        animator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(80000L);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = backgroundOne.getWidth();
+                final float translationX = width * progress;
+                backgroundOne.setTranslationX(translationX);
+                backgroundTwo.setTranslationX(translationX - width);
+            }
+        });
+        animator.start();
+
+        AudioPlayer.playMusic(getApplicationContext(), R.raw.chill);
         running = true;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
@@ -689,6 +712,8 @@ public class MediumPlayGameActivity extends Activity {
                         centerTextView.setText("Everything is different now...");
                         centerTextView.startAnimation(freezeFadeoutAnim);
                         centerTextView.setVisibility(View.INVISIBLE);
+                        AudioPlayer.playMusic(getApplicationContext(), R.raw.intense);
+                        animator.setDuration(5000L);
                         //randomizeAllRoomStatus();
                         refreshSwitches();
                         RANDOMIZE_COUNTER--;
@@ -849,6 +874,18 @@ public class MediumPlayGameActivity extends Activity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AudioPlayer.resumeMusic();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AudioPlayer.pauseMusic();
     }
 
     //    @Override
