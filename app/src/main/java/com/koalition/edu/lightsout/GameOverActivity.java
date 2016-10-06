@@ -63,7 +63,7 @@ public class GameOverActivity extends AppCompatActivity {
         playAgainButtonClicked.setVisibility(View.INVISIBLE);
         bestScoreText.setVisibility(View.INVISIBLE);
 
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
         int highScore = sharedPreferences.getInt("HighScore", -1);
         int currentScore = sharedPreferences.getInt("CurrentScore", -5);
@@ -111,8 +111,9 @@ public class GameOverActivity extends AppCompatActivity {
                         //=====Write down you code Finger Released code here
                         backToMainButtonClicked.setVisibility(View.INVISIBLE);
                         backToMainButton.setVisibility(View.VISIBLE);
-/*                        Intent i = new Intent(GameOverActivity.this, MainActivity.class);
-                        startActivity(i);*/
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         finish();
                         return true;
                 }
@@ -137,14 +138,15 @@ public class GameOverActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_POINTER_UP:
 
                         String difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
-                        Intent intent = new Intent(GameOverActivity.this, MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         if(difficulty.equals("easy"))
-                            intent = new Intent(GameOverActivity.this, EasyPlayGameActivity.class);
+                            intent = new Intent(getApplicationContext(), EasyPlayGameActivity.class);
                         else if(difficulty.equals("medium"))
-                            intent = new Intent(GameOverActivity.this, MediumPlayGameActivity.class);
+                            intent = new Intent(getApplicationContext(), MediumPlayGameActivity.class);
                         else if(difficulty.equals("insane"))
-                            intent = new Intent(GameOverActivity.this, InsanePlayGameActivity.class);
+                            intent = new Intent(getApplicationContext(), InsanePlayGameActivity.class);
                         startActivity(intent);
+                        finish();
 
                         //=====Write down you code Finger Released code here
                         playAgainButtonClicked.setVisibility(View.INVISIBLE);
@@ -165,7 +167,7 @@ public class GameOverActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 // Get the shared preferences
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if(sharedPreferences.getBoolean("getsFreeCoins", false)){

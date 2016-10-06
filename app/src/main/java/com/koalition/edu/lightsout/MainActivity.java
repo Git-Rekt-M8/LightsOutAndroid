@@ -5,8 +5,12 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +21,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.IOException;
+import java.sql.Time;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,19 +29,44 @@ public class MainActivity extends AppCompatActivity {
     ImageView playGameButton;
     ImageView shopButton;
     ImageView settingsButton;
+    ImageView backgroundImageView;
 
     private MediaPlayer mediaPlayer;
     SharedPreferences sharedPreferences;
     final static int BC_PENDINGINTENT = 3;
+
+    TransitionDrawable crossfader;
+    int drawableIndex = 0;
+    Resources res;
+    Drawable backgrounds[] = new Drawable[2];
+    int[] drawableIDs = new int[6];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // START OF CROSSFADE
+        backgroundImageView = (ImageView)findViewById(R.id.background_rooms);
+
+        drawableIDs[0] = R.drawable.room3bg;
+        drawableIDs[1] = R.drawable.room1bg;
+        drawableIDs[2] = R.drawable.room5bg;
+        drawableIDs[3] = R.drawable.room4bg;
+        drawableIDs[4] = R.drawable.room2bg;
+        drawableIDs[5] = R.drawable.room6bg;
+
+        res = getResources();
+//        crossfadeHandler.postDelayed(crossfadeRunnable, 0);
+        // END OF CROSSFADE
+
+        //one time lang
+        AudioPlayer.initSFX(getApplicationContext());
+
         // Get the solo preferences (only for this activity)
         SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
         // Get the shared preferences
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         // music initial
@@ -132,8 +161,10 @@ public class MainActivity extends AppCompatActivity {
                         //=====Write down you code Finger Released code here
                         shopButton.setImageResource(R.drawable.shop_btn);
 
-                        Intent intent=new Intent(MainActivity.this, ShopMainActivity.class);
+                        Intent intent=new Intent(getApplicationContext(), ShopMainActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                        finish();
                         return true;
                 }
                 return false;
@@ -174,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        crossfadeHandler.postDelayed(crossfadeRunnable, 0);
 
         MyApplication.activityResumed();
         // Get the shared preferences
@@ -240,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         AudioPlayer.pauseMusic();
         MyApplication.activityPaused();
+        crossfadeHandler.removeCallbacks(crossfadeRunnable);
     }
 
     @Override
@@ -273,5 +307,33 @@ public class MainActivity extends AppCompatActivity {
 //        super.onStop();
 //        mediaPlayer.stop();
 //    }
+
+    Handler crossfadeHandler = new Handler();
+    Runnable crossfadeRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+
+            //backgrounds[0] = res.getDrawable(drawableIDs[drawableIndex], getTheme());
+            backgrounds[0] = res.getDrawable(drawableIDs[drawableIndex]);
+            if(drawableIndex==5){
+                //backgrounds[1] = res.getDrawable(drawableIDs[0], getTheme());
+                backgrounds[1] = res.getDrawable(drawableIDs[0]);
+            }
+            else //backgrounds[1] = res.getDrawable(drawableIDs[drawableIndex+1], getTheme());
+                backgrounds[1] = res.getDrawable(drawableIDs[drawableIndex+1]);
+            crossfader = new TransitionDrawable(backgrounds);
+
+            backgroundImageView.setImageDrawable(crossfader);
+
+            crossfader.startTransition(1000);
+            drawableIndex++;
+            if(drawableIndex==6){
+                drawableIndex=0;
+            }
+
+            crossfadeHandler.postDelayed(this, 4000);
+        }
+    };
 
 }

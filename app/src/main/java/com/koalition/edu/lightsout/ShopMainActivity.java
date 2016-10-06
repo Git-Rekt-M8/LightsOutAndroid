@@ -66,6 +66,8 @@ public class ShopMainActivity extends Activity {
 
                         Intent intent = new Intent(getApplicationContext(), PowerUpListActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                        finish();
                         return true;
                 }
                 return false;
@@ -92,6 +94,8 @@ public class ShopMainActivity extends Activity {
 
                         Intent intent = new Intent(getApplicationContext(), DesignListActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                        finish();
                         return true;
                 }
                 return false;
@@ -118,6 +122,9 @@ public class ShopMainActivity extends Activity {
                         //backButtonOnClick.setVisibility(View.INVISIBLE); change back color
                         backButton.setTextColor(getResources().getColor(R.color.notPressedText));
 
+                        Intent intent=new Intent(ShopMainActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         finish();
                         return true;
                 }

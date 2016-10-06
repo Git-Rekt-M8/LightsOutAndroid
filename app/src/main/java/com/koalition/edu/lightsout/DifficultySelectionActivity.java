@@ -37,27 +37,33 @@ public class DifficultySelectionActivity extends Activity {
         easyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 Intent startEasyGameIntent = new Intent(getBaseContext(), EasyPlayGameActivity.class);
+                startEasyGameIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(startEasyGameIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
             }
         });
 
         mediumTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 Intent startMediumGameIntent = new Intent(getBaseContext(), MediumPlayGameActivity.class);
+                startMediumGameIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(startMediumGameIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
             }
         });
 
         hardTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 Intent startInsaneGameIntent = new Intent(getBaseContext(), InsanePlayGameActivity.class);
+                startInsaneGameIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(startInsaneGameIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
             }
         });
         close = (ImageView) findViewById(R.id.iv_close);
@@ -74,4 +80,15 @@ public class DifficultySelectionActivity extends Activity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AudioPlayer.pauseMusic();
+    }
 }
