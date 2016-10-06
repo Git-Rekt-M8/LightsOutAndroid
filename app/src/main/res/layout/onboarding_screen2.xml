@@ -12,7 +12,8 @@
         android:text="Play"
         android:textSize="48sp"
         android:textColor="#ffffff"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:id="@+id/tv_welcome2"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +22,8 @@
         android:layout_marginTop="20dp"
         android:textColor="#ffffff"
         android:textAlignment="center"
-        android:text="Figure out which button is for which light to turn them off before your money runs out!"/>
+        android:text="Figure out which button is for which light to turn them off before your money runs out!"
+        android:id="@+id/tv_message2"/>
 
 
 

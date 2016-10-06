@@ -124,7 +124,7 @@
                         android:gravity="center_vertical"
                         android:text="20"
                         android:textColor="#fafaf9"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:id="@+id/tv_freeze_count" />
 
                     <ImageView
@@ -150,7 +150,7 @@
                         android:gravity="center_vertical"
                         android:text="20"
                         android:textColor="#fafaf9"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:id="@+id/tv_brown_out_count" />
 
                     <ImageView
@@ -282,6 +282,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="70dp"
+            android:paddingRight="20dp"
             android:gravity="bottom"
             android:text="-1"
             android:textColor="#f0f079"
