@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        crossfadeHandler.postDelayed(crossfadeRunnable, 0);
+        /*crossfadeHandler.postDelayed(crossfadeRunnable, 0);*/
 
         MyApplication.activityResumed();
         // Get the shared preferences
@@ -385,8 +385,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        recycleImageView(backgroundImageView);
-        backgroundImageView.setImageDrawable(null);
+/*        recycleImageView(backgroundImageView);
+        backgroundImageView.setImageDrawable(null);*/
 
     }
 
