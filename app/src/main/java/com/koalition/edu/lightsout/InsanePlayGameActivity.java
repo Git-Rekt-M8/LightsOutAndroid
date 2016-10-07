@@ -615,8 +615,8 @@ public class InsanePlayGameActivity extends Activity {
         int[] switchChoiceArray = {0, 1, 2, 3, 4, 5};
         choicesArray = shuffleArray(choicesArray);
         switchChoiceArray = shuffleArray(switchChoiceArray);
-        System.out.println("HELLO " + switchChoiceArray[0]);
-        System.out.println("HELLO " + switchChoiceArray[0]);
+/*        System.out.println("HELLO " + switchChoiceArray[0]);
+        System.out.println("HELLO " + switchChoiceArray[0]);*/
         boolean startingRoomState = false;
         boolean startingSwitchState = false;
 
@@ -633,8 +633,8 @@ public class InsanePlayGameActivity extends Activity {
             switches.get(i).setSwitchNumber(i);
 
         }
-        for (int j = 0; j < switches.size(); j++)
-            System.out.println("switchNumber: " + switches.get(j).getSwitchNumber() + " room " + switches.get(j).getRoomNumber());
+        /*for (int j = 0; j < switches.size(); j++)
+            System.out.println("switchNumber: " + switches.get(j).getSwitchNumber() + " room " + switches.get(j).getRoomNumber());*/
     }
 
     public void updateComponents(int switchNumber, int roomNumber, boolean switchState, boolean roomState) {
@@ -874,10 +874,8 @@ public class InsanePlayGameActivity extends Activity {
 
         if (moneyValue <= 0) {
             running = false;
-            System.out.println("SCORE " + scoreValue);
             editor.putInt("CurrentScore", scoreValue);
             editor.apply();
-            System.out.println("SCORE2 " + scoreValue);
             Intent intent = new Intent(InsanePlayGameActivity.this, GameOverActivity.class);
             startActivity(intent);
             finish();
@@ -962,7 +960,6 @@ public class InsanePlayGameActivity extends Activity {
 
     public void activateBrownOut() {
         int numOfBrownOuts = sharedPreferences.getInt("powerup2Count", 0);
-        System.out.println("num1 " + numOfBrownOuts);
         if (numOfBrownOuts > 0) {
 
             AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);

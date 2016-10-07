@@ -71,7 +71,6 @@ public class AudioPlayer {
 
     public static void playMusic(Context c, int id){
         getAudioSettings(c);
-        System.out.println("LETS SING " + musicSetting);
 
         if(musicSetting && (!isPlayingMusic || songPlaying != id)) {
             if (mediaPlayer != null)
@@ -80,7 +79,6 @@ public class AudioPlayer {
                 mediaPlayer = MediaPlayer.create(c, id);
                 songPlaying = id;
             }
-            System.out.println("LETS PARTEY");
             isMusicPaused = false;
             isPlayingMusic = true;
             mediaPlayer.start();
@@ -91,7 +89,6 @@ public class AudioPlayer {
 
 
     public static void pauseMusic(){
-        System.out.println("Pause ka muna boi");
         isPlayingMusic = false;
         isMusicPaused = true;
         if (mediaPlayer != null)

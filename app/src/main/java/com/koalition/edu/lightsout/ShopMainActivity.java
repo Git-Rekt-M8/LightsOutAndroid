@@ -150,7 +150,6 @@ public class ShopMainActivity extends Activity {
 
 
         if(sharedPreferences.getBoolean("getsFreeCoins", false)){
-            System.out.println("dito pumasok ang koya");
             int seconds = FreeCoinReceiver.TIMER_SEC;
             Intent broadcastIntent = new Intent(getBaseContext(), FreeCoinReceiver.class);
             PendingIntent pendingIntent
