@@ -12,7 +12,8 @@
         android:text="Features"
         android:textColor="#ffffff"
         android:textSize="48sp"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:id="@+id/tv_welcome3"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +22,8 @@
         android:textColor="#ffffff"
         android:layout_marginTop="20dp"
         android:textAlignment="center"
-        android:text="You can use your coins to buy from the shop"/>
+        android:text="You can use your coins to buy from the shop"
+        android:id="@+id/tv_message3"/>
 
     <ImageView
         android:layout_width="wrap_content"

@@ -223,6 +223,7 @@ public class MediumPlayGameActivity extends Activity {
                         if (switches.get(0).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(0).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -268,6 +269,7 @@ public class MediumPlayGameActivity extends Activity {
                         if (switches.get(1).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(1).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -313,6 +315,7 @@ public class MediumPlayGameActivity extends Activity {
                         if (switches.get(2).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(2).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -358,6 +361,7 @@ public class MediumPlayGameActivity extends Activity {
                         if (switches.get(3).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(3).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -403,6 +407,7 @@ public class MediumPlayGameActivity extends Activity {
                         if (switches.get(4).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(4).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -456,6 +461,7 @@ public class MediumPlayGameActivity extends Activity {
 
     private void checkIfStreakBonus(int streakValue) {
         if( streakValue >= 15 ) {
+            animateTextView(scoreValue, scoreValue + 30, scoreTextView);
             scoreValue += 30;
 
             centerTextView.setText("Your streak is 15");
@@ -465,6 +471,7 @@ public class MediumPlayGameActivity extends Activity {
 
             updateHUD(moneyValue, scoreValue);
         } else if (streakValue >= 10) {
+            animateTextView(scoreValue, scoreValue + 20, scoreTextView);
             scoreValue += 20;
 
             centerTextView.setText("Your streak is 10");
@@ -475,6 +482,7 @@ public class MediumPlayGameActivity extends Activity {
             updateHUD(moneyValue, scoreValue);
         } else
         if (streakValue >= 5) {
+            animateTextView(scoreValue, scoreValue + 10, scoreTextView);
             scoreValue += 10;
 
             centerTextView.setText("Your streak is 5");
@@ -749,7 +757,26 @@ public class MediumPlayGameActivity extends Activity {
 
     public void updateHUD(int updatedMoney, int updatedScore) {
         moneyTextView.setText(String.format("%d", updatedMoney));
-        scoreTextView.setText(String.format("%d", updatedScore));
+        //scoreTextView.setText(String.format("%d", updatedScore));
+    }
+
+    public void animateTextView(int initialValue, int finalValue, final TextView  textview) {
+
+        if(Integer.parseInt(textview.getText().toString()) <= initialValue) {
+            ValueAnimator valueAnimator = ValueAnimator.ofInt(initialValue, finalValue);
+            valueAnimator.setDuration(1000);
+
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+
+                    textview.setText(valueAnimator.getAnimatedValue().toString());
+
+                }
+            });
+            valueAnimator.start();
+        }
+
     }
 
     public void updateMoneyValue() {

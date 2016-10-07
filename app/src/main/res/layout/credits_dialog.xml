@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_box_blank"
+    android:layout_width="432dp"
+    android:layout_height="368dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.koalition.edu.lightsout.SettingsDialogActivity"
+    android:id="@+id/creditsLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="18dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_credits_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/close_btn"
+            android:layout_gravity="right"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lights Out v1.0"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:id="@+id/tv_app_version"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="John Caingles"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:id="@+id/credits_caingles"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Kingston Koa"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:id="@+id/credits_koa"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Jolo Simeon"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:id="@+id/credits_simeon"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ms. Courtney Ngo - Mentor"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:id="@+id/credits_ngo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DJ Dwibbit - Music and SFX"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:id="@+id/credits_dwibbit"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
