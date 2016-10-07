@@ -6,6 +6,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.media.MediaPlayer;
@@ -70,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         // music initial
-        editor.putBoolean("Music", true);
-        editor.apply();
-        editor.putBoolean("SoundFX", true);
-        editor.apply();
+        //editor.putBoolean("Music", true);
+        //editor.apply();
+        //editor.putBoolean("SoundFX", true);
+        //editor.apply();
 
         System.out.println("If contains music onCreate: " + preferences.contains("Music"));
 
@@ -81,21 +83,23 @@ public class MainActivity extends AppCompatActivity {
         if(!preferences.getBoolean("onboarding_complete",false)) {
             dbHelper = new DatabaseHelper(getBaseContext());
             dbHelper.deleteAll();
-            dbHelper.insertPowerUp(new PowerUp(1, "Freeze Time", 300, 0, "@drawable/freezeshopicon"));
-            dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon"));
-            dbHelper.insertPowerUp(new PowerUp(3, "Green House", 3000, 1, "@drawable/greenhouseicon"));
-            dbHelper.insertPowerUp(new PowerUp(4, "Nipa Hut", 5000, 1, "@drawable/nipahuticon"));
+            dbHelper.insertPowerUp(new PowerUp(1, "Freeze Money", 300, 0, "@drawable/freezeshopicon", "Avoid those electric bills and hold on to your money for a short amount of time!"));
+            dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon", "Discharge a house-wide brownout and have all the lights turned off instantly!"));
+            dbHelper.insertPowerUp(new PowerUp(3, "Default", 0, 1, "@drawable/defaulthouseicon", "The classic design in all its glory."));
+            dbHelper.insertPowerUp(new PowerUp(4, "Green House", 3000, 1, "@drawable/greenhouseicon", "Be one with nature as a refreshing green tone blankets the house."));
+            dbHelper.insertPowerUp(new PowerUp(5, "Nipa Hut", 5000, 1, "@drawable/nipahuticon", "Have a glimpse of the Phlippine heritage and rebuild your house out of bamboos and long leaves!"));
 
 
             editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
             editor.putInt("CurrentScore", 0);
             editor.putInt("Coins", 15000);
-            editor.putBoolean("Music", true);
-            editor.putBoolean("SoundFX", true);
+            //editor.putBoolean("Music", true);
+            //editor.putBoolean("SoundFX", true);
             editor.putInt("powerup1Count", 0);
             editor.putInt("powerup2Count", 0);
-            editor.putInt("powerup3Count", 0);
+            editor.putInt("powerup3Count", 1);
             editor.putInt("powerup4Count", 0);
+            editor.putInt("powerup5Count", 0);
             editor.putInt("CurrentDesign",0);
             editor.apply();
 
@@ -126,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //=====Write down you code Finger Released code here
                         playGameButton.setImageResource(R.drawable.playgame_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
                         // Get the solo preferences (only for this activity)
                         SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
                         if(!preferences.getBoolean("onboarding_complete",false)) {
@@ -160,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //=====Write down you code Finger Released code here
                         shopButton.setImageResource(R.drawable.shop_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
 
                         Intent intent=new Intent(getApplicationContext(), ShopMainActivity.class);
                         startActivity(intent);
@@ -188,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //=====Write down you code Finger Released code here
                         settingsButton.setImageResource(R.drawable.settings_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
 
                         Intent intent=new Intent(getApplicationContext(), SettingsDialogActivity.class);
                         startActivity(intent);
@@ -206,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //crossfadeHandler.postDelayed(crossfadeRunnable, 0);
+        crossfadeHandler.postDelayed(crossfadeRunnable, 0);
 
         MyApplication.activityResumed();
         // Get the shared preferences
@@ -314,6 +321,26 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
 
+            if((backgrounds[0]!=null) ) {
+                if (backgrounds[0] instanceof BitmapDrawable) {
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) backgrounds[0];
+                    Bitmap bitmap = bitmapDrawable.getBitmap();
+                    bitmap.recycle();
+                    backgrounds[0] = null;
+                    System.out.println("TIME TO RECYCLE YO!! 0");
+                }
+            }
+
+//            if((backgrounds[1]!=null)) {
+//                if (backgrounds[1] instanceof BitmapDrawable) {
+//                    BitmapDrawable bitmapDrawable = (BitmapDrawable) backgrounds[1];
+//                    Bitmap bitmap = bitmapDrawable.getBitmap();
+//                    bitmap.recycle();
+//                    backgrounds[1] = null;
+//                    System.out.println("TIME TO RECYCLE YO!! 1");
+//                }
+//            }
+
             //backgrounds[0] = res.getDrawable(drawableIDs[drawableIndex], getTheme());
             backgrounds[0] = res.getDrawable(drawableIDs[drawableIndex]);
             if(drawableIndex==5){
@@ -331,9 +358,27 @@ public class MainActivity extends AppCompatActivity {
             if(drawableIndex==6){
                 drawableIndex=0;
             }
-
-            crossfadeHandler.postDelayed(this, 4000);
+            System.out.println("YEH BUIIIII");
+            crossfadeHandler.postDelayed(this, 3000);
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        recycleImageView(backgroundImageView);
+        backgroundImageView.setImageDrawable(null);
+
+    }
+
+    private void recycleImageView(ImageView imageView){
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+            bitmap.recycle();
+        }
+    }
 
 }

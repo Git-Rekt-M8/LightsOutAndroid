@@ -16,4 +16,5 @@
     <string name="title_activity_insane_play_game">InsanePlayGameActivity</string>
     <string name="title_activity_design_list">DesignListActivity</string>
     <string name="shop_back_text"> &lt; Back</string>
+    <string name="title_activity_shop_dialog">ShopDialogActivity</string>
 </resources>

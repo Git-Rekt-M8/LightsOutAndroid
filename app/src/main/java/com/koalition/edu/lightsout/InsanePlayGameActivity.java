@@ -5,7 +5,10 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -71,12 +74,12 @@ public class InsanePlayGameActivity extends Activity {
 
     // GAME VARIABLES
     // timer for randomizing every randomizeSpeed
-    static int RANDOMIZE_SPEED = 2000;
+    int RANDOMIZE_SPEED = 2000;
     int RANDOMIZE_COUNTER = 1;
-    static int POINTS_LOST = 1;
-    static int POINTS_GAINED = 40;
-    static int POSSIBLE_LIGHTS_ON = 4;
-    static int STARTING_COINS = 200;
+    int POINTS_LOST = 1;
+    int POINTS_GAINED = 40;
+    int POSSIBLE_LIGHTS_ON = 4;
+    int STARTING_COINS = 200;
 
     int currentDesign;
     //HUD
@@ -186,8 +189,9 @@ public class InsanePlayGameActivity extends Activity {
         currentDesign = sharedPreferences.getInt("CurrentDesign", 0);
         switch (currentDesign) {
             case 0: break;
-            case 3: designImageView.setImageResource(R.drawable.green_custom); break;
-            case 4: designImageView.setImageResource(R.drawable.nipa_custom);break;
+            case 3: designImageView.setImageResource(android.R.color.transparent);break;
+            case 4: designImageView.setImageResource(R.drawable.green_custom); break;
+            case 5: designImageView.setImageResource(R.drawable.nipa_custom);break;
         }
 
         numOfRooms = 6;
@@ -226,6 +230,7 @@ public class InsanePlayGameActivity extends Activity {
                             if (switches.get(0).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
                                 animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -239,6 +244,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(0).setRoomState(true);
                             turnOnRoom(switches.get(0).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -272,6 +278,7 @@ public class InsanePlayGameActivity extends Activity {
                             if (switches.get(1).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
                                 animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -285,6 +292,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(1).setRoomState(true);
                             turnOnRoom(switches.get(1).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -318,6 +326,7 @@ public class InsanePlayGameActivity extends Activity {
                             if (switches.get(2).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
                                 animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -331,6 +340,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(2).setRoomState(true);
                             turnOnRoom(switches.get(2).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -364,6 +374,7 @@ public class InsanePlayGameActivity extends Activity {
                             if (switches.get(3).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
                                 animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -377,6 +388,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(3).setRoomState(true);
                             turnOnRoom(switches.get(3).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -410,6 +422,7 @@ public class InsanePlayGameActivity extends Activity {
                             if (switches.get(4).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
                                 animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -423,6 +436,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(4).setRoomState(true);
                             turnOnRoom(switches.get(4).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -456,6 +470,7 @@ public class InsanePlayGameActivity extends Activity {
                             if (switches.get(5).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
                                 animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -469,6 +484,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(5).setRoomState(true);
                             turnOnRoom(switches.get(5).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -541,6 +557,7 @@ public class InsanePlayGameActivity extends Activity {
     }
 
     public void turnOffRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1off);
@@ -564,6 +581,7 @@ public class InsanePlayGameActivity extends Activity {
     }
 
     public void turnOnRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1on);
@@ -924,6 +942,8 @@ public class InsanePlayGameActivity extends Activity {
         int numOfFreezeTime = sharedPreferences.getInt("powerup1Count", 0);
         if (numOfFreezeTime > 0) {
 
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.freezesfx);
+
             editor.putInt("powerup1Count", numOfFreezeTime - 1);
             editor.apply();
             freezeTimeCountTextView.setText(String.valueOf(numOfFreezeTime - 1));
@@ -946,6 +966,8 @@ public class InsanePlayGameActivity extends Activity {
         int numOfBrownOuts = sharedPreferences.getInt("powerup2Count", 0);
         System.out.println("num1 " + numOfBrownOuts);
         if (numOfBrownOuts > 0) {
+
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);
             freezeScreenImageView.setImageResource(R.drawable.brownout_screen);
             freezeScreenImageView.startAnimation(streakFadeoutAnim);
             freezeScreenImageView.setVisibility(ImageView.INVISIBLE);
@@ -984,6 +1006,43 @@ public class InsanePlayGameActivity extends Activity {
     protected void onPause() {
         super.onPause();
         AudioPlayer.pauseMusic();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        recycleImageView((ImageView) findViewById(R.id.freeze_screen));
+        recycleImageView((ImageView) findViewById(R.id.background_sky1));
+        recycleImageView((ImageView) findViewById(R.id.background_sky2));
+        recycleImageView((ImageView) findViewById(R.id.house_design));
+        recycleImageView((ImageView) findViewById(R.id.easy_room1));
+        recycleImageView((ImageView) findViewById(R.id.easy_room2));
+        recycleImageView((ImageView) findViewById(R.id.easy_room3));
+        recycleImageView((ImageView) findViewById(R.id.easy_room4));
+        recycleImageView((ImageView) findViewById(R.id.easy_room5));
+        recycleImageView((ImageView) findViewById(R.id.easy_room6));
+
+        ((ImageView) findViewById(R.id.freeze_screen)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.background_sky1)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.background_sky2)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.house_design)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room1)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room2)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room3)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room4)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room5)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room6)).setImageDrawable(null);
+
+    }
+
+    private void recycleImageView(ImageView imageView){
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+            bitmap.recycle();
+        }
     }
 
     //    @Override

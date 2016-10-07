@@ -42,6 +42,9 @@ public class AudioPlayer {
         SFXlist.put(R.raw.upsfx, soundPool.load(c, R.raw.upsfx, 1));
         SFXlist.put(R.raw.downsfx, soundPool.load(c, R.raw.downsfx, 1));
         SFXlist.put(R.raw.switchsfx, soundPool.load(c, R.raw.switchsfx, 1));
+        SFXlist.put(R.raw.freezesfx, soundPool.load(c, R.raw.freezesfx, 1));
+        SFXlist.put(R.raw.brownoutsfx, soundPool.load(c, R.raw.brownoutsfx, 1));
+        SFXlist.put(R.raw.cashsfx, soundPool.load(c, R.raw.cashsfx, 1));
     }
 
     public static void playSFX(Context c, int id){
@@ -52,8 +55,8 @@ public class AudioPlayer {
 
     public static void getAudioSettings(Context c){
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
-        musicSetting = sharedPreferences.getBoolean("Music", false);
-        SFXSetting = sharedPreferences.getBoolean("SFX", false);
+        musicSetting = sharedPreferences.getBoolean("Music", true);
+        SFXSetting = sharedPreferences.getBoolean("SoundFX", true);
     }
 
     public static void resumeMusic(){
@@ -91,7 +94,8 @@ public class AudioPlayer {
         System.out.println("Pause ka muna boi");
         isPlayingMusic = false;
         isMusicPaused = true;
-        mediaPlayer.pause();
+        if (mediaPlayer != null)
+            mediaPlayer.pause();
     }
 
     public static void stopMusic(){

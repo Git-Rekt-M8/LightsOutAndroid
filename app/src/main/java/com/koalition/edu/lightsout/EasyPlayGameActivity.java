@@ -5,7 +5,10 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -65,12 +68,12 @@ public class EasyPlayGameActivity extends Activity {
 
     // GAME VARIABLES
     // timer for randomizing every randomizeSpeed
-    static int RANDOMIZE_SPEED = 1500;
+    int RANDOMIZE_SPEED = 1500;
     int RANDOMIZE_COUNTER = 1;
-    static int POINTS_LOST = 1;
-    static int POINTS_GAINED = 10;
-    static int POSSIBLE_LIGHTS_ON = 1;
-    static int STARTING_COINS = 100;
+    int POINTS_LOST = 1;
+    int POINTS_GAINED = 10;
+    int POSSIBLE_LIGHTS_ON = 1;
+    int STARTING_COINS = 100;
 
 
 
@@ -181,8 +184,9 @@ public class EasyPlayGameActivity extends Activity {
         currentDesign = sharedPreferences.getInt("CurrentDesign", 0);
         switch (currentDesign) {
             case 0: break;
-            case 3: designImageView.setImageResource(R.drawable.green_custom); break;
-            case 4: designImageView.setImageResource(R.drawable.nipa_custom);break;
+            case 3: designImageView.setImageResource(android.R.color.transparent);break;
+            case 4: designImageView.setImageResource(R.drawable.green_custom); break;
+            case 5: designImageView.setImageResource(R.drawable.nipa_custom);break;
         }
 
         numOfRooms = 4;
@@ -450,6 +454,7 @@ public class EasyPlayGameActivity extends Activity {
     }
 
     public void turnOffRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1off);
@@ -467,6 +472,7 @@ public class EasyPlayGameActivity extends Activity {
     }
 
     public void turnOnRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1on);
@@ -725,7 +731,7 @@ public class EasyPlayGameActivity extends Activity {
             editor.putInt("CurrentScore", scoreValue);
             editor.apply();
             System.out.println("SCORE2 " + scoreValue);
-            Intent intent = new Intent(EasyPlayGameActivity.this, GameOverActivity.class);
+            Intent intent = new Intent(getApplicationContext(), GameOverActivity.class);
             startActivity(intent);
             finish();
         }
@@ -788,6 +794,8 @@ public class EasyPlayGameActivity extends Activity {
         int numOfFreezeTime = sharedPreferences.getInt("powerup1Count", 0);
         if (numOfFreezeTime > 0) {
 
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.freezesfx);
+
             editor.putInt("powerup1Count", numOfFreezeTime - 1);
             editor.apply();
             freezeTimeCountTextView.setText(String.valueOf(numOfFreezeTime-1));
@@ -813,6 +821,8 @@ public class EasyPlayGameActivity extends Activity {
         int numOfBrownOuts = sharedPreferences.getInt("powerup2Count", 0);
         System.out.println("num1 " + numOfBrownOuts);
         if (numOfBrownOuts > 0) {
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);
+
             freezeScreenImageView.setImageResource(R.drawable.brownout_screen);
             freezeScreenImageView.startAnimation(streakFadeoutAnim);
             freezeScreenImageView.setVisibility(ImageView.INVISIBLE);
@@ -854,6 +864,38 @@ public class EasyPlayGameActivity extends Activity {
         AudioPlayer.pauseMusic();
         hudUpdateHandler.removeCallbacks(hudUpdateRunnable);
         randomizeLitRoomHandler.removeCallbacks(randomizeLitRoomRunnable);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        recycleImageView((ImageView) findViewById(R.id.freeze_screen));
+        recycleImageView((ImageView) findViewById(R.id.background_sky1));
+        recycleImageView((ImageView) findViewById(R.id.background_sky2));
+        recycleImageView((ImageView) findViewById(R.id.house_design));
+        recycleImageView((ImageView) findViewById(R.id.easy_room1));
+        recycleImageView((ImageView) findViewById(R.id.easy_room2));
+        recycleImageView((ImageView) findViewById(R.id.easy_room3));
+        recycleImageView((ImageView) findViewById(R.id.easy_room4));
+
+        ((ImageView) findViewById(R.id.freeze_screen)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.background_sky1)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.background_sky2)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.house_design)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room1)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room2)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room3)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room4)).setImageDrawable(null);
+    }
+
+    private void recycleImageView(ImageView imageView){
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+            bitmap.recycle();
+        }
     }
 
     //    @Override

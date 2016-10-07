@@ -24,8 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/housenosky"
-        android:id="@+id/background_sky2"/>
+        android:src="@drawable/housenosky"/>
 
     <ImageView
         android:layout_width="match_parent"
