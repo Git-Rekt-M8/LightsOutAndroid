@@ -170,7 +170,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="6">
-                <!--android:paddingBottom="5dp"-->
                 <!--ROOMS-->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -320,18 +319,5 @@
     android:layout_height="match_parent"
     android:scaleType="fitCenter"
     android:id="@+id/streak_view"/>
-    <!--android:src="@drawable/streak5_txt"-->
-
-    <!--OVERLAYS-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text=""-->
-    <!--android:textColor="#fafaf9"-->
-    <!--android:textSize="40sp"-->
-    <!--android:id="@+id/tv_time"-->
-    <!--android:layout_alignParentTop="true"-->
-    <!--android:layout_alignStart="@+id/easy_room1" />-->
 
 </RelativeLayout>

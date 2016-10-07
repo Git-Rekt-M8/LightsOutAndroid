@@ -6,7 +6,6 @@
 
     tools:context="com.koalition.edu.lightsout.MainActivity"
     >
-    <!--tools:context="com.example.fullscreen.MainActivity"-->
 
     <ImageView
         android:layout_width="match_parent"
