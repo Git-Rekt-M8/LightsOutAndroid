@@ -65,12 +65,12 @@ public class EasyPlayGameActivity extends Activity {
 
     // GAME VARIABLES
     // timer for randomizing every randomizeSpeed
-    static int RANDOMIZE_SPEED = 1500;
+    int RANDOMIZE_SPEED = 1500;
     int RANDOMIZE_COUNTER = 1;
-    static int POINTS_LOST = 1;
-    static int POINTS_GAINED = 10;
-    static int POSSIBLE_LIGHTS_ON = 1;
-    static int STARTING_COINS = 100;
+    int POINTS_LOST = 1;
+    int POINTS_GAINED = 10;
+    int POSSIBLE_LIGHTS_ON = 1;
+    int STARTING_COINS = 100;
 
 
 
@@ -443,6 +443,7 @@ public class EasyPlayGameActivity extends Activity {
     }
 
     public void turnOffRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1off);
@@ -460,6 +461,7 @@ public class EasyPlayGameActivity extends Activity {
     }
 
     public void turnOnRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1on);
@@ -699,7 +701,7 @@ public class EasyPlayGameActivity extends Activity {
             editor.putInt("CurrentScore", scoreValue);
             editor.apply();
             System.out.println("SCORE2 " + scoreValue);
-            Intent intent = new Intent(EasyPlayGameActivity.this, GameOverActivity.class);
+            Intent intent = new Intent(getApplicationContext(), GameOverActivity.class);
             startActivity(intent);
             finish();
         }
@@ -762,6 +764,8 @@ public class EasyPlayGameActivity extends Activity {
         int numOfFreezeTime = sharedPreferences.getInt("powerup1Count", 0);
         if (numOfFreezeTime > 0) {
 
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.freezesfx);
+
             editor.putInt("powerup1Count", numOfFreezeTime - 1);
             editor.apply();
             freezeTimeCountTextView.setText(String.valueOf(numOfFreezeTime-1));
@@ -787,6 +791,8 @@ public class EasyPlayGameActivity extends Activity {
         int numOfBrownOuts = sharedPreferences.getInt("powerup2Count", 0);
         System.out.println("num1 " + numOfBrownOuts);
         if (numOfBrownOuts > 0) {
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);
+
             freezeScreenImageView.setImageResource(R.drawable.brownout_screen);
             freezeScreenImageView.startAnimation(streakFadeoutAnim);
             freezeScreenImageView.setVisibility(ImageView.INVISIBLE);

@@ -63,6 +63,7 @@ public class ShopMainActivity extends Activity {
 
                         //=====Write down you code Finger Released code here
                         powerUpButton.setImageResource(R.drawable.power_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
 
                         Intent intent = new Intent(getApplicationContext(), PowerUpListActivity.class);
                         startActivity(intent);
@@ -91,6 +92,7 @@ public class ShopMainActivity extends Activity {
 
                         //=====Write down you code Finger Released code here
                         designButton.setImageResource(R.drawable.design_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
 
                         Intent intent = new Intent(getApplicationContext(), DesignListActivity.class);
                         startActivity(intent);

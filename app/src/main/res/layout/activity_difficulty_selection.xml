@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:text="Medium"
         android:textSize="42sp"
-        android:textColor="#d50ba2"
+        android:textColor="#810662"
         android:scaleType="fitXY"
         android:layout_marginTop="40dp"
         android:layout_gravity="center" />
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="Insane"
         android:textSize="42sp"
-        android:textColor="#e80509"
+        android:textColor="#a70305"
         android:scaleType="fitXY"
         android:layout_marginTop="40dp"
         android:layout_gravity="center" />

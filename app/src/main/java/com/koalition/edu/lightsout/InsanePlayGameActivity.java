@@ -71,12 +71,12 @@ public class InsanePlayGameActivity extends Activity {
 
     // GAME VARIABLES
     // timer for randomizing every randomizeSpeed
-    static int RANDOMIZE_SPEED = 2000;
+    int RANDOMIZE_SPEED = 2000;
     int RANDOMIZE_COUNTER = 1;
-    static int POINTS_LOST = 1;
-    static int POINTS_GAINED = 40;
-    static int POSSIBLE_LIGHTS_ON = 4;
-    static int STARTING_COINS = 200;
+    int POINTS_LOST = 1;
+    int POINTS_GAINED = 40;
+    int POSSIBLE_LIGHTS_ON = 4;
+    int STARTING_COINS = 200;
 
     int currentDesign;
     //HUD
@@ -225,6 +225,7 @@ public class InsanePlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(0).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -238,6 +239,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(0).setRoomState(true);
                             turnOnRoom(switches.get(0).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -270,6 +272,7 @@ public class InsanePlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(1).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -283,6 +286,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(1).setRoomState(true);
                             turnOnRoom(switches.get(1).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -315,6 +319,7 @@ public class InsanePlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(2).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -328,6 +333,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(2).setRoomState(true);
                             turnOnRoom(switches.get(2).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -360,6 +366,7 @@ public class InsanePlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(3).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -373,6 +380,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(3).setRoomState(true);
                             turnOnRoom(switches.get(3).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -405,6 +413,7 @@ public class InsanePlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(4).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -418,6 +427,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(4).setRoomState(true);
                             turnOnRoom(switches.get(4).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -450,6 +460,7 @@ public class InsanePlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(5).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
+                                AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -463,6 +474,7 @@ public class InsanePlayGameActivity extends Activity {
 
                             switches.get(5).setRoomState(true);
                             turnOnRoom(switches.get(5).getRoomNumber());
+                            AudioPlayer.playSFX(getApplicationContext(), R.raw.downsfx);
 
                             // VIBRATOR TURN ON
                             Vibrator vibrator = (Vibrator) getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -532,6 +544,7 @@ public class InsanePlayGameActivity extends Activity {
     }
 
     public void turnOffRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1off);
@@ -555,6 +568,7 @@ public class InsanePlayGameActivity extends Activity {
     }
 
     public void turnOnRoom(int roomNumber) {
+        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
         switch (roomNumber) {
             case 1:
                 room1Box.setImageResource(R.drawable.room1on);
@@ -898,6 +912,8 @@ public class InsanePlayGameActivity extends Activity {
         int numOfFreezeTime = sharedPreferences.getInt("powerup1Count", 0);
         if (numOfFreezeTime > 0) {
 
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.freezesfx);
+
             editor.putInt("powerup1Count", numOfFreezeTime - 1);
             editor.apply();
             freezeTimeCountTextView.setText(String.valueOf(numOfFreezeTime - 1));
@@ -920,6 +936,8 @@ public class InsanePlayGameActivity extends Activity {
         int numOfBrownOuts = sharedPreferences.getInt("powerup2Count", 0);
         System.out.println("num1 " + numOfBrownOuts);
         if (numOfBrownOuts > 0) {
+
+            AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);
             freezeScreenImageView.setImageResource(R.drawable.brownout_screen);
             freezeScreenImageView.startAnimation(streakFadeoutAnim);
             freezeScreenImageView.setVisibility(ImageView.INVISIBLE);

@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         // music initial
-        editor.putBoolean("Music", true);
-        editor.apply();
-        editor.putBoolean("SoundFX", true);
-        editor.apply();
+        //editor.putBoolean("Music", true);
+        //editor.apply();
+        //editor.putBoolean("SoundFX", true);
+        //editor.apply();
 
         System.out.println("If contains music onCreate: " + preferences.contains("Music"));
 
@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
             editor.putInt("CurrentScore", 0);
             editor.putInt("Coins", 15000);
-            editor.putBoolean("Music", true);
-            editor.putBoolean("SoundFX", true);
+            //editor.putBoolean("Music", true);
+            //editor.putBoolean("SoundFX", true);
             editor.putInt("powerup1Count", 0);
             editor.putInt("powerup2Count", 0);
             editor.putInt("powerup3Count", 0);
@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //=====Write down you code Finger Released code here
                         playGameButton.setImageResource(R.drawable.playgame_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
                         // Get the solo preferences (only for this activity)
                         SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
                         if(!preferences.getBoolean("onboarding_complete",false)) {
@@ -160,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //=====Write down you code Finger Released code here
                         shopButton.setImageResource(R.drawable.shop_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
 
                         Intent intent=new Intent(getApplicationContext(), ShopMainActivity.class);
                         startActivity(intent);
@@ -188,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //=====Write down you code Finger Released code here
                         settingsButton.setImageResource(R.drawable.settings_btn);
+                        AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
 
                         Intent intent=new Intent(getApplicationContext(), SettingsDialogActivity.class);
                         startActivity(intent);
