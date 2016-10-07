@@ -68,11 +68,9 @@ public class PowerupAdapter
     @Override
     public void onBindViewHolder(PowerupHolder powerupHolder, int position) {
         // TODO: change textView's text to current song
-        System.out.println("WAT IS LYF 1");
         PowerUp powerUp = powerups.get(position);
 
         int idResource = context.getResources().getIdentifier(powerUp.getIconTite(), "id", PowerUpListActivity.class.getPackage().getName());
-        System.out.println("WAT IS LYF 2");
 
         powerupHolder.tvPowerupTitle.setText(powerUp.getTitle());
         powerupHolder.tvPowerupCost.setText(String.valueOf(powerUp.getPrice()));
@@ -81,19 +79,6 @@ public class PowerupAdapter
         powerupHolder.container.setTag(R.id.key_item_holder, powerupHolder);
         powerupHolder.container.setTag(R.id.key_item_powerup, powerUp);
 
-        System.out.println("WAT IS LYF 3");
-//
-//        powerupHolder.container.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//                int position = ((SongHolder)v.getTag(R.id.key_item_holder)).getAdapterPosition();
-//                songs.remove(position);
-//                notifyItemRemoved(position);
-//                return false;
-//            }
-//        });
-//
-        //WORKS BUT DELAY FAKER
         powerupHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +93,6 @@ public class PowerupAdapter
             }
         });
 
-        System.out.println("WAT IS LYF 4");
     }
 
     @Override

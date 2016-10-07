@@ -65,7 +65,6 @@ public class ShopDialogActivity extends Activity {
         Intent intent = this.getIntent();
         int shopItemID = intent.getExtras().getInt("shopItemID");
         powerUp = dbHelper.queryPowerUp(shopItemID);
-        System.out.println("ANO DAW: " + powerUp.getIconTite());
 
         close = (ImageView) findViewById(R.id.iv_close);
         powerupImageView = (ImageView) findViewById(R.id.shopitem_imageview);
@@ -239,7 +238,6 @@ public class ShopDialogActivity extends Activity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if(sharedPreferences.getBoolean("getsFreeCoins", false)){
-            System.out.println("dito pumasok ang koya");
             int seconds = FreeCoinReceiver.TIMER_SEC;
             Intent broadcastIntent = new Intent(getBaseContext(), FreeCoinReceiver.class);
             PendingIntent pendingIntent

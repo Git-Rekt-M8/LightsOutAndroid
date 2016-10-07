@@ -75,13 +75,8 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        // music initial
-        //editor.putBoolean("Music", true);
-        //editor.apply();
-        //editor.putBoolean("SoundFX", true);
-        //editor.apply();
 
-        System.out.println("If contains music onCreate: " + preferences.contains("Music"));
+        /*System.out.println("If contains music onCreate: " + preferences.contains("Music"));*/
 
         // Check if onboarding_complete is false
         if(!preferences.getBoolean("onboarding_complete",false)) {
@@ -225,16 +220,10 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        System.out.println("ANO DAW PO: " + sharedPreferences.getBoolean("Music", false));
-        System.out.println("PAG ETO TRU >:( " + sharedPreferences.getBoolean("Music", true));
-        System.out.println("iyak if false: " + sharedPreferences.contains("Music"));
-        System.out.println("free coins dapat true: " + sharedPreferences.contains("getsFreeCoins"));
-
         AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
 
         // check if new coins
         if(sharedPreferences.getBoolean("getsFreeCoins", false)){
-            System.out.println("dito pumasok ang koya");
             int seconds = FreeCoinReceiver.TIMER_SEC;
             Intent broadcastIntent = new Intent(getBaseContext(), FreeCoinReceiver.class);
             PendingIntent pendingIntent
@@ -345,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
                     Bitmap bitmap = bitmapDrawable.getBitmap();
                     bitmap.recycle();
                     backgrounds[0] = null;
-                    System.out.println("TIME TO RECYCLE YO!! 0");
+                    /*System.out.println("TIME TO RECYCLE YO!! 0");*/
                 }
             }
 
@@ -376,7 +365,6 @@ public class MainActivity extends AppCompatActivity {
             if(drawableIndex==6){
                 drawableIndex=0;
             }
-            System.out.println("YEH BUIIIII");
             crossfadeHandler.postDelayed(this, 3000);
         }
     };
