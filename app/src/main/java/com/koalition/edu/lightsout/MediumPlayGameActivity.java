@@ -416,7 +416,7 @@ public class MediumPlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(4).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
-                                animateTextView(scoreValue- POINTS_GAINED, scoreValue, scoreTextView);
+                                animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -474,7 +474,7 @@ public class MediumPlayGameActivity extends Activity {
             scoreValue += 30;
             animateTextView(scoreValue - 30, scoreValue, scoreTextView);
 
-            centerTextView.setText("Your streak is 15");
+            centerTextView.setText(R.string.streak_15_message);
             centerTextView.startAnimation(streakFadeoutAnim);
             centerTextView.setVisibility(View.INVISIBLE);
 
@@ -484,7 +484,7 @@ public class MediumPlayGameActivity extends Activity {
             scoreValue += 20;
             animateTextView(scoreValue - 20, scoreValue, scoreTextView);
 
-            centerTextView.setText("Your streak is 10");
+            centerTextView.setText(R.string.streak_10_message);
             centerTextView.startAnimation(streakFadeoutAnim);
             centerTextView.setVisibility(View.INVISIBLE);
 
@@ -495,7 +495,7 @@ public class MediumPlayGameActivity extends Activity {
             scoreValue += 10;
             animateTextView(scoreValue - 10, scoreValue, scoreTextView);
 
-            centerTextView.setText("Your streak is 5");
+            centerTextView.setText(R.string.streak_5_message);
             centerTextView.startAnimation(streakFadeoutAnim);
             centerTextView.setVisibility(View.INVISIBLE);
 

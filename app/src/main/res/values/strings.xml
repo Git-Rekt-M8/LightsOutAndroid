@@ -17,4 +17,7 @@
     <string name="title_activity_design_list">DesignListActivity</string>
     <string name="shop_back_text"> &lt; Back</string>
     <string name="title_activity_shop_dialog">ShopDialogActivity</string>
+    <string name="streak_5_message">X5 Streak\nWow</string>
+    <string name="streak_10_message">X10 Streak\nBeastmode</string>
+    <string name="streak_15_message">X15 Streak\nMeralco Cri</string>
 </resources>
