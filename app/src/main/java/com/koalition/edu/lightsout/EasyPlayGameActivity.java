@@ -70,6 +70,8 @@ public class EasyPlayGameActivity extends Activity {
     // timer for randomizing every randomizeSpeed
     int RANDOMIZE_SPEED = 1500;
     int RANDOMIZE_COUNTER = 1;
+    //Reaction time before money deduction is made
+    int MONEY_DEDUCTION_SPEED = 1000;
     int POINTS_LOST = 1;
     int POINTS_GAINED = 10;
     int POSSIBLE_LIGHTS_ON = 1;
@@ -676,8 +678,7 @@ public class EasyPlayGameActivity extends Activity {
 
                 updateHUD(moneyValue, scoreValue);
 
-                int timeToReact = 1000;
-                randomizeLitRoomHandler.postDelayed(this, timeToReact);
+                hudUpdateHandler.postDelayed(this, MONEY_DEDUCTION_SPEED);
             }
         }
     };
@@ -843,7 +844,7 @@ public class EasyPlayGameActivity extends Activity {
     protected void onStop() {
         super.onStop();
 
-        running = false;
+//        running = false;
     }
 
     @Override

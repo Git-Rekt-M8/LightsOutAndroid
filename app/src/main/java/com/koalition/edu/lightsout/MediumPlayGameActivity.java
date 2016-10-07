@@ -74,6 +74,8 @@ public class MediumPlayGameActivity extends Activity {
     // timer for randomizing every randomizeSpeed
     int RANDOMIZE_SPEED = 2000;
     int RANDOMIZE_COUNTER = 1;
+    //Reaction time before money deduction is made
+    int MONEY_DEDUCTION_SPEED = 1000;
     int POINTS_LOST = 1;
     int POINTS_GAINED = 20;
     int POSSIBLE_LIGHTS_ON = 2;
@@ -207,8 +209,6 @@ public class MediumPlayGameActivity extends Activity {
         statusRandom = new Random();
         // timer for randomizing every randomizeSpeed
         time = 0;
-        randomizeLitRoomHandler.postDelayed(randomizeLitRoomRunnable, 0);
-        hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
         refreshSwitches();
 
 
@@ -751,8 +751,7 @@ public class MediumPlayGameActivity extends Activity {
 
                 updateHUD(moneyValue, scoreValue);
 
-                int timeToReact = 1000;
-                randomizeLitRoomHandler.postDelayed(this, timeToReact);
+                hudUpdateHandler.postDelayed(this, MONEY_DEDUCTION_SPEED);
             }
         }
     };
@@ -923,12 +922,16 @@ public class MediumPlayGameActivity extends Activity {
     protected void onResume() {
         super.onResume();
         AudioPlayer.resumeMusic();
+        randomizeLitRoomHandler.postDelayed(randomizeLitRoomRunnable, 0);
+        hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         AudioPlayer.pauseMusic();
+        hudUpdateHandler.removeCallbacks(hudUpdateRunnable);
+        randomizeLitRoomHandler.removeCallbacks(randomizeLitRoomRunnable);
     }
 
     @Override

@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/buy_button"
                 android:gravity="center_horizontal"
-                android:background="@drawable/buy_btn"/>
+                android:background="@drawable/buy_btn_selector"/>
         </LinearLayout>
 
     </LinearLayout>
