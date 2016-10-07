@@ -260,7 +260,7 @@ public class ShopDialogActivity extends Activity {
             /** toast */
             Toast toast = Toast.makeText(getBaseContext(), "You get free 100 coins!",
                     Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+            toast.setGravity(Gravity.BOTTOM, toast.getXOffset() / 2, toast.getYOffset() / 2);
 
             TextView textView = new TextView(getApplicationContext());
             textView.setBackgroundColor(Color.DKGRAY);
