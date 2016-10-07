@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -414,8 +416,22 @@ public class SettingsDialogActivity extends Activity {
             editor.putInt("Coins", currentCoins+100);
             editor.apply();
             /** toast */
-            Toast.makeText(getBaseContext(), "YOU GET FREE 100 Coins",
-                    Toast.LENGTH_LONG).show();
+            Toast toast = Toast.makeText(getBaseContext(), "You get free 100 coins!",
+                    Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+
+            TextView textView = new TextView(getApplicationContext());
+            textView.setBackgroundColor(Color.DKGRAY);
+            textView.setTextColor(Color.WHITE);
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextSize(20);
+            Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/pixelmix.ttf");
+            textView.setTypeface(typeface);
+            textView.setPadding(10, 10, 10, 10);
+            textView.setText("You get free 100 coins!");
+
+            toast.setView(textView);
+            toast.show();
         }
     }
 

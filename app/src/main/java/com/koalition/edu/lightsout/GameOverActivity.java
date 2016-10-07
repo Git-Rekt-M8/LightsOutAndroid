@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -190,8 +192,22 @@ public class GameOverActivity extends AppCompatActivity {
             editor.putInt("Coins", currentCoins+100);
             editor.apply();
             /** toast */
-            Toast.makeText(getBaseContext(), "YOU GET FREE 100 Coins",
-                    Toast.LENGTH_LONG).show();
+            Toast toast = Toast.makeText(getBaseContext(), "You get free 100 coins!",
+                    Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+
+            TextView textView = new TextView(getApplicationContext());
+            textView.setBackgroundColor(Color.DKGRAY);
+            textView.setTextColor(Color.WHITE);
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextSize(20);
+            Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/pixelmix.ttf");
+            textView.setTypeface(typeface);
+            textView.setPadding(10, 10, 10, 10);
+            textView.setText("You get free 100 coins!");
+
+            toast.setView(textView);
+            toast.show();
         }
         //mediaPlayer.start();
     }
