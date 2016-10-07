@@ -218,8 +218,8 @@ public class EasyPlayGameActivity extends Activity {
                         if (switches.get(0).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(0).getIsSwitchedByAI() == true) {
-                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
+                                animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -266,8 +266,8 @@ public class EasyPlayGameActivity extends Activity {
                         if (switches.get(1).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(1).getIsSwitchedByAI() == true) {
-                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
+                                animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -316,7 +316,7 @@ public class EasyPlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(2).getIsSwitchedByAI() == true) {
                                 scoreValue += POINTS_GAINED;
-                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
+                                animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
@@ -364,8 +364,8 @@ public class EasyPlayGameActivity extends Activity {
                             // TODO add score
                             if (switches.get(3).getIsSwitchedByAI() == true) {
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
-                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
+                                animateTextView(scoreValue - POINTS_GAINED, scoreValue, scoreTextView);
                                 updateHUD(moneyValue, scoreValue);
                                 streakValue++;
                                 checkIfStreakBonus(streakValue);
@@ -419,8 +419,8 @@ public class EasyPlayGameActivity extends Activity {
 
     private void checkIfStreakBonus(int streakValue) {
         if( streakValue >= 15 ) {
-            animateTextView(scoreValue, scoreValue + 30, scoreTextView);
             scoreValue += 30;
+            animateTextView(scoreValue - 30, scoreValue, scoreTextView);
 
             centerTextView.setText("Your streak is 15");
             centerTextView.startAnimation(streakFadeoutAnim);
@@ -428,8 +428,8 @@ public class EasyPlayGameActivity extends Activity {
 
             updateHUD(moneyValue, scoreValue);
         } else if (streakValue >= 10) {
-            animateTextView(scoreValue, scoreValue + 20, scoreTextView);
             scoreValue += 20;
+            animateTextView(scoreValue - 20, scoreValue, scoreTextView);
 
             centerTextView.setText("Your streak is 10");
             centerTextView.startAnimation(streakFadeoutAnim);
@@ -438,8 +438,8 @@ public class EasyPlayGameActivity extends Activity {
             updateHUD(moneyValue, scoreValue);
         } else
         if (streakValue >= 5) {
-            animateTextView(scoreValue, scoreValue + 10, scoreTextView);
             scoreValue += 10;
+            animateTextView(scoreValue - 10, scoreValue, scoreTextView);
 
             centerTextView.setText("Your streak is 5");
             centerTextView.startAnimation(streakFadeoutAnim);
@@ -695,7 +695,6 @@ public class EasyPlayGameActivity extends Activity {
 
     public void animateTextView(int initialValue, int finalValue, final TextView  textview) {
 
-        if(Integer.parseInt(textview.getText().toString()) <= initialValue) {
             ValueAnimator valueAnimator = ValueAnimator.ofInt(initialValue, finalValue);
             valueAnimator.setDuration(1000);
 
@@ -708,7 +707,6 @@ public class EasyPlayGameActivity extends Activity {
                 }
             });
             valueAnimator.start();
-        }
 
     }
 
