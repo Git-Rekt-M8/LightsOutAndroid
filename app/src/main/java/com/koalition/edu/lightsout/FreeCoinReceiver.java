@@ -41,7 +41,7 @@ public class FreeCoinReceiver extends BroadcastReceiver {
                 .setTicker("Ticker text")
                 .setContentTitle("Lights Out")
                 .setContentText("Get your 100 FREE COINS")
-                .setSmallIcon(R.mipmap.logo)
+                .setSmallIcon(R.drawable.notif_icon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.logo))
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
