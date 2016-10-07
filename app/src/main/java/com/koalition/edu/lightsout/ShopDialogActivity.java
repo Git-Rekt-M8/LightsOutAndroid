@@ -121,7 +121,7 @@ public class ShopDialogActivity extends Activity {
                         toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
 
                         TextView textView = new TextView(getApplicationContext());
-                        //textView.setBackgroundColor(Color.DKGRAY);
+                        textView.setBackgroundColor(Color.DKGRAY);
                         textView.setTextColor(Color.WHITE);
                         textView.setGravity(Gravity.CENTER);
                         textView.setTextSize(20);
