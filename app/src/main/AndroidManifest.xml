@@ -23,6 +23,7 @@
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -30,10 +31,13 @@
         <activity
             android:name=".Splash"
             android:screenOrientation="landscape">
-<!--            <intent-filter>
+
+            <!--
+                <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".OnboardingActivity"
@@ -100,7 +104,12 @@
         <activity
             android:name=".DesignListActivity"
             android:label="@string/title_activity_design_list"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ShopDialogActivity"
+            android:label="@string/title_activity_shop_dialog"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>

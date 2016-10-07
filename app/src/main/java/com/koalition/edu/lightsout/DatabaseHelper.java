@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + PowerUp.COLUMN_TITLE + " STRING, "
                 + PowerUp.COLUMN_PRICE + " INTEGER, "
                 + PowerUp.COLUMN_CATEGORY + " INTEGER, "
+                + PowerUp.COLUMN_DESCRIPTION + " STRING, "
                 + PowerUp.COLUMN_ICONTITLE + " STRING );";
         db.execSQL(powerUpTable);
     }
@@ -45,6 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PowerUp.COLUMN_PRICE, p.getPrice());
         contentValues.put(PowerUp.COLUMN_CATEGORY, p.getCategory());
         contentValues.put(PowerUp.COLUMN_ICONTITLE, p.getIconTite());
+        contentValues.put(PowerUp.COLUMN_DESCRIPTION, p.getDescription());
         db.insert(PowerUp.TABLE_NAME, null, contentValues);
         db.close();
     }
@@ -61,6 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             powerUp.setPrice(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_PRICE)));
             powerUp.setCategory(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_CATEGORY)));
             powerUp.setIconTite(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_ICONTITLE)));
+            powerUp.setDescription(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_DESCRIPTION)));
         }
         cursor.close();
         db.close();
@@ -82,6 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 powerUp.setPrice(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_PRICE)));
                 powerUp.setCategory(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_CATEGORY)));
                 powerUp.setIconTite(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_ICONTITLE)));
+                powerUp.setDescription(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_DESCRIPTION)));
                 powerupArrayList.add(powerUp);
             }while(cursor.moveToNext());
         }
@@ -104,6 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 powerUp.setPrice(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_PRICE)));
                 powerUp.setCategory(cursor.getInt(cursor.getColumnIndex(PowerUp.COLUMN_CATEGORY)));
                 powerUp.setIconTite(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_ICONTITLE)));
+                powerUp.setDescription(cursor.getString(cursor.getColumnIndex(PowerUp.COLUMN_DESCRIPTION)));
                 powerupArrayList.add(powerUp);
             }while(cursor.moveToNext());
         }

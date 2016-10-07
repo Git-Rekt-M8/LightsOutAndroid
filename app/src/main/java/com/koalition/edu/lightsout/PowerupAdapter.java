@@ -97,49 +97,14 @@ public class PowerupAdapter
         powerupHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("ANO DAW WTF");
-
+//                System.out.println("ANO DAW WTF");
+//
                 PowerUp powerUp = (PowerUp) v.getTag(R.id.key_item_powerup);
-//                int powerupIndex = ((PowerupHolder)v.getTag(R.id.key_item_holder)).getAdapterPosition()+1;
-                int currentCoins = sharedPreferences.getInt("Coins", 0);
 
-                if(powerUp.getCategory() == 0) {
-                    if (currentCoins > powerUp.getPrice()) {
-                        editor.putInt("Coins", currentCoins - powerUp.getPrice());
-                        editor.putInt("powerup" + powerUp.getId() + "Count", sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0) + 1);
-                        editor.apply();
-                        TextView playerBalanceTV = (TextView) ((Activity) context).findViewById(R.id.player_balance);
-                        playerBalanceTV.setText(String.valueOf(sharedPreferences.getInt("Coins", 0)));
-
-
-                        Toast.makeText(context, "Obtained a " + powerUp.getTitle() + " powerup!",
-                                Toast.LENGTH_SHORT).show();
-                    } else
-                        Toast.makeText(context, "Not enough coins :(",
-                                Toast.LENGTH_SHORT).show();
-                }
-
-                if(powerUp.getCategory() == 1) {
-                    int ifBought = sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0);
-                    if( ifBought>0 ) {
-                        editor.putInt("CurrentDesign", 1);
-                        Toast.makeText(context, "Changed design to " + powerUp.getTitle() + "!",
-                                Toast.LENGTH_SHORT).show();
-                    } else
-                    if (currentCoins > powerUp.getPrice() ) {
-                        editor.putInt("Coins", currentCoins - powerUp.getPrice());
-                        editor.putInt("powerup" + powerUp.getId() + "Count", 1);
-                        editor.putInt("CurrentDesign", powerUp.getId());
-                        editor.apply();
-                        TextView playerBalanceTV = (TextView) ((Activity) context).findViewById(R.id.player_balance);
-                        playerBalanceTV.setText(String.valueOf(sharedPreferences.getInt("Coins", 0)));
-
-                        Toast.makeText(context, "Obtained a "+ powerUp.getTitle() + "!",
-                                Toast.LENGTH_SHORT).show();
-                    } else
-                        Toast.makeText(context, "Not enough coins :(",
-                                Toast.LENGTH_SHORT).show();
-                }
+                //IGNORE Muna
+                Intent intent=new Intent(context, ShopDialogActivity.class);
+                intent.putExtra("shopItemID", powerUp.getId());
+                context.startActivity(intent);
             }
         });
 

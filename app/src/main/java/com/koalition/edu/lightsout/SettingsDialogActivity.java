@@ -36,11 +36,19 @@ public class SettingsDialogActivity extends Activity {
     TextView reset_confirm;
     TextView reset_done;
 
+    TextView app_version;
+    TextView name_caingles;
+    TextView name_koa;
+    TextView name_simeon;
+    TextView name_ngo;
+    TextView name_dwibbit;
+
     Typeface pixelFont;
 
     ImageView music_status;
     ImageView sound_fx_status;
     ImageView close;
+    ImageView credits_close;
 
     ImageView close_done;
 
@@ -264,6 +272,37 @@ public class SettingsDialogActivity extends Activity {
 
             }
 
+        });
+
+        credits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.credits_dialog);
+                app_version = (TextView) findViewById(R.id.tv_app_version);
+                name_caingles = (TextView) findViewById(R.id.credits_caingles);
+                name_koa = (TextView) findViewById(R.id.credits_koa);
+                name_simeon = (TextView) findViewById(R.id.credits_simeon);
+                name_ngo = (TextView) findViewById(R.id.credits_ngo);
+                name_dwibbit = (TextView) findViewById(R.id.credits_dwibbit);
+                credits_close = (ImageView) findViewById(R.id.iv_credits_close);
+
+
+                app_version.setTypeface(pixelFont);
+                name_caingles.setTypeface(pixelFont);
+                name_koa.setTypeface(pixelFont);
+                name_simeon.setTypeface(pixelFont);
+                name_ngo.setTypeface(pixelFont);
+                name_dwibbit.setTypeface(pixelFont);
+
+                credits_close.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+
+                        finish();
+
+                    }
+
+                });
+            }
         });
 
         reset_progress.setOnClickListener(new View.OnClickListener() {

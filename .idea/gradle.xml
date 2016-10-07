@@ -5,13 +5,12 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/facebook" />
             <option value="$PROJECT_DIR$/samples" />
-            <option value="$PROJECT_DIR$/samples/HelloFacebookSample" />
             <option value="$PROJECT_DIR$/samples/Iconicus" />
             <option value="$PROJECT_DIR$/samples/MessengerSendSample" />
             <option value="$PROJECT_DIR$/samples/RPSSample" />
@@ -23,9 +22,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/facebook" />
             <option value="$PROJECT_DIR$/samples" />
-            <option value="$PROJECT_DIR$/samples/HelloFacebookSample" />
             <option value="$PROJECT_DIR$/samples/Iconicus" />
             <option value="$PROJECT_DIR$/samples/MessengerSendSample" />
             <option value="$PROJECT_DIR$/samples/RPSSample" />

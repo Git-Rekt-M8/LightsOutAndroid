@@ -10,25 +10,25 @@ public class PowerUp {
     public static final String COLUMN_PRICE = "price";
     public static final String COLUMN_CATEGORY = "category";
     public static final String COLUMN_ICONTITLE = "icon";
+    public static final String COLUMN_DESCRIPTION = "description";
 
     private int id;
     private String title;
     private int price;
     private int category;
     private String iconTite;
+    private String description;
 
     public PowerUp() {
     }
 
-
-
-    public PowerUp(int id, String title, int price, int category, String iconTite) {
+    public PowerUp(int id, String title, int price, int category, String iconTite, String description) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.category = category;
         this.iconTite = iconTite;
-
+        this.description = description;
     }
 
     public int getId() {
@@ -69,5 +69,13 @@ public class PowerUp {
 
     public void setIconTite(String iconTite) {
         this.iconTite = iconTite;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

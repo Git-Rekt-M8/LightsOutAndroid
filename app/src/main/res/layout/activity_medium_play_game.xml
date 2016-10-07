@@ -24,8 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/housenosky"
-        android:id="@+id/background_sky2"/>
+        android:src="@drawable/housenosky"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -124,7 +123,7 @@
                         android:gravity="center_vertical"
                         android:text="20"
                         android:textColor="#fafaf9"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:id="@+id/tv_freeze_count" />
 
                     <ImageView
@@ -150,7 +149,7 @@
                         android:gravity="center_vertical"
                         android:text="20"
                         android:textColor="#fafaf9"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:id="@+id/tv_brown_out_count" />
 
                     <ImageView
@@ -299,6 +298,7 @@
             android:paddingLeft="70dp"
             android:gravity="bottom"
             android:text="-1"
+            android:paddingRight="20dp"
             android:textColor="#f0f079"
             android:textSize="20sp"
             android:id="@+id/tv_deduction" />

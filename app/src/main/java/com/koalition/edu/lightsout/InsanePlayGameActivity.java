@@ -5,7 +5,10 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -186,8 +189,9 @@ public class InsanePlayGameActivity extends Activity {
         currentDesign = sharedPreferences.getInt("CurrentDesign", 0);
         switch (currentDesign) {
             case 0: break;
-            case 3: designImageView.setImageResource(R.drawable.green_custom); break;
-            case 4: designImageView.setImageResource(R.drawable.nipa_custom);break;
+            case 3: designImageView.setImageResource(android.R.color.transparent);break;
+            case 4: designImageView.setImageResource(R.drawable.green_custom); break;
+            case 5: designImageView.setImageResource(R.drawable.nipa_custom);break;
         }
 
         numOfRooms = 6;
@@ -224,6 +228,7 @@ public class InsanePlayGameActivity extends Activity {
                         if (switches.get(0).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(0).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
@@ -271,6 +276,7 @@ public class InsanePlayGameActivity extends Activity {
                         if (switches.get(1).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(1).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
@@ -318,6 +324,7 @@ public class InsanePlayGameActivity extends Activity {
                         if (switches.get(2).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(2).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
@@ -365,6 +372,7 @@ public class InsanePlayGameActivity extends Activity {
                         if (switches.get(3).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(3).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
@@ -412,6 +420,7 @@ public class InsanePlayGameActivity extends Activity {
                         if (switches.get(4).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(4).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
@@ -459,6 +468,7 @@ public class InsanePlayGameActivity extends Activity {
                         if (switches.get(5).isRoomState() == true) {
                             // TODO add score
                             if (switches.get(5).getIsSwitchedByAI() == true) {
+                                animateTextView(scoreValue, scoreValue + POINTS_GAINED, scoreTextView);
                                 scoreValue += POINTS_GAINED;
                                 AudioPlayer.playSFX(getApplicationContext(), R.raw.upsfx);
                                 updateHUD(moneyValue, scoreValue);
@@ -514,6 +524,7 @@ public class InsanePlayGameActivity extends Activity {
 
     private void checkIfStreakBonus(int streakValue) {
         if( streakValue >= 15 ) {
+            animateTextView(scoreValue, scoreValue + 30, scoreTextView);
             scoreValue += 30;
 
             centerTextView.setText("Your streak is 15");
@@ -522,6 +533,7 @@ public class InsanePlayGameActivity extends Activity {
 
             updateHUD(moneyValue, scoreValue);
         } else if (streakValue >= 10) {
+            animateTextView(scoreValue, scoreValue + 20, scoreTextView);
             scoreValue += 20;
 
             centerTextView.setText("Your streak is 10");
@@ -532,6 +544,7 @@ public class InsanePlayGameActivity extends Activity {
             updateHUD(moneyValue, scoreValue);
         } else
         if (streakValue >= 5) {
+            animateTextView(scoreValue, scoreValue + 10, scoreTextView);
             scoreValue += 10;
 
             centerTextView.setText("Your streak is 5");
@@ -831,7 +844,26 @@ public class InsanePlayGameActivity extends Activity {
 
     public void updateHUD(int updatedMoney, int updatedScore) {
         moneyTextView.setText(String.format("%d", updatedMoney));
-        scoreTextView.setText(String.format("%d", updatedScore));
+        //scoreTextView.setText(String.format("%d", updatedScore));
+    }
+
+    public void animateTextView(int initialValue, int finalValue, final TextView  textview) {
+
+        if(Integer.parseInt(textview.getText().toString()) <= initialValue) {
+            ValueAnimator valueAnimator = ValueAnimator.ofInt(initialValue, finalValue);
+            valueAnimator.setDuration(1000);
+
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+
+                    textview.setText(valueAnimator.getAnimatedValue().toString());
+
+                }
+            });
+            valueAnimator.start();
+        }
+
     }
 
     public void updateMoneyValue() {
@@ -976,6 +1008,43 @@ public class InsanePlayGameActivity extends Activity {
     protected void onPause() {
         super.onPause();
         AudioPlayer.pauseMusic();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        recycleImageView((ImageView) findViewById(R.id.freeze_screen));
+        recycleImageView((ImageView) findViewById(R.id.background_sky1));
+        recycleImageView((ImageView) findViewById(R.id.background_sky2));
+        recycleImageView((ImageView) findViewById(R.id.house_design));
+        recycleImageView((ImageView) findViewById(R.id.easy_room1));
+        recycleImageView((ImageView) findViewById(R.id.easy_room2));
+        recycleImageView((ImageView) findViewById(R.id.easy_room3));
+        recycleImageView((ImageView) findViewById(R.id.easy_room4));
+        recycleImageView((ImageView) findViewById(R.id.easy_room5));
+        recycleImageView((ImageView) findViewById(R.id.easy_room6));
+
+        ((ImageView) findViewById(R.id.freeze_screen)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.background_sky1)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.background_sky2)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.house_design)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room1)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room2)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room3)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room4)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room5)).setImageDrawable(null);
+        ((ImageView) findViewById(R.id.easy_room6)).setImageDrawable(null);
+
+    }
+
+    private void recycleImageView(ImageView imageView){
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+            bitmap.recycle();
+        }
     }
 
     //    @Override
