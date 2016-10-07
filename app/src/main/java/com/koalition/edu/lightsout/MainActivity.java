@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             dbHelper.deleteAll();
             dbHelper.insertPowerUp(new PowerUp(1, "Freeze Money", 300, 0, "@drawable/freezeshopicon", "Avoid those electric bills and hold on to your money for a short amount of time!"));
             dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon", "Discharge a house-wide brownout and have all the lights turned off instantly!"));
-            dbHelper.insertPowerUp(new PowerUp(3, "Default", 0, 1, "@drawable/nipahuticon", "The classic design in all its glory."));
+            dbHelper.insertPowerUp(new PowerUp(3, "Default", 0, 1, "@drawable/defaulthouseicon", "The classic design in all its glory."));
             dbHelper.insertPowerUp(new PowerUp(4, "Green House", 3000, 1, "@drawable/greenhouseicon", "Be one with nature as a refreshing green tone blankets the house."));
             dbHelper.insertPowerUp(new PowerUp(5, "Nipa Hut", 5000, 1, "@drawable/nipahuticon", "Have a glimpse of the Phlippine heritage and rebuild your house out of bamboos and long leaves!"));
 
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //crossfadeHandler.postDelayed(crossfadeRunnable, 0);
+        crossfadeHandler.postDelayed(crossfadeRunnable, 0);
 
         MyApplication.activityResumed();
         // Get the shared preferences

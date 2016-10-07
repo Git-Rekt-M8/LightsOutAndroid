@@ -136,8 +136,8 @@ public class ShopDialogActivity extends Activity {
                         editor.apply();
 //                        TextView playerBalanceTV = (TextView) ((Activity) getBaseContext()).findViewById(R.id.player_balance);
 //                        playerBalanceTV.setText(String.valueOf(sharedPreferences.getInt("Coins", 0)));
-                        powerUpQuantity.setText(String.valueOf(sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0)));
-
+//                        powerUpQuantity.setText(String.valueOf(sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0)));
+                        currentlyOwnedTextView.setText("Owned");
                         Toast.makeText(getBaseContext(), "Obtained a "+ powerUp.getTitle() + "!",
                                 Toast.LENGTH_SHORT).show();
                     } else
