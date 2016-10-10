@@ -212,10 +212,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        /*crossfadeHandler.postDelayed(crossfadeRunnable, 0);*/
+        crossfadeHandler.postDelayed(crossfadeRunnable, 0);
 
         MyApplication.activityResumed();
-        // Get the shared preferences
+        // Get the shared preferences/
 //        preferences =  getSharedPreferences("my_preferences", MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -328,15 +328,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
 
-            if((backgrounds[0]!=null) ) {
-                if (backgrounds[0] instanceof BitmapDrawable) {
-                    BitmapDrawable bitmapDrawable = (BitmapDrawable) backgrounds[0];
-                    Bitmap bitmap = bitmapDrawable.getBitmap();
-                    bitmap.recycle();
-                    backgrounds[0] = null;
-                    /*System.out.println("TIME TO RECYCLE YO!! 0");*/
-                }
-            }
+//            if((backgrounds[0]!=null) ) {
+//                if (backgrounds[0] instanceof BitmapDrawable) {
+//                    BitmapDrawable bitmapDrawable = (BitmapDrawable) backgrounds[0];
+//                    Bitmap bitmap = bitmapDrawable.getBitmap();
+//                    bitmap.recycle();
+//                    backgrounds[0] = null;
+//                    /*System.out.println("TIME TO RECYCLE YO!! 0");*/
+//                }
+//            }
 
 //            if((backgrounds[1]!=null)) {
 //                if (backgrounds[1] instanceof BitmapDrawable) {
@@ -349,7 +349,19 @@ public class MainActivity extends AppCompatActivity {
 //            }
 
             //backgrounds[0] = res.getDrawable(drawableIDs[drawableIndex], getTheme());
-            backgrounds[0] = res.getDrawable(drawableIDs[drawableIndex]);
+            Drawable oldDrawable = backgroundImageView.getDrawable();
+            BitmapDrawable oldBitmapDrawable = null;
+            if (oldDrawable instanceof TransitionDrawable)
+            {
+                TransitionDrawable oldTransitionDrawable = (TransitionDrawable)oldDrawable;
+                oldBitmapDrawable =(BitmapDrawable)  (oldTransitionDrawable).getDrawable(1);
+            }
+            else if (oldDrawable instanceof BitmapDrawable)
+            {
+                oldBitmapDrawable = (BitmapDrawable) oldDrawable;
+            }
+
+            backgrounds[0] = oldBitmapDrawable;
             if(drawableIndex==5){
                 //backgrounds[1] = res.getDrawable(drawableIDs[0], getTheme());
                 backgrounds[1] = res.getDrawable(drawableIDs[0]);

@@ -1011,16 +1011,16 @@ public class InsanePlayGameActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
 
-        recycleImageView((ImageView) findViewById(R.id.freeze_screen));
-        recycleImageView((ImageView) findViewById(R.id.background_sky1));
-        recycleImageView((ImageView) findViewById(R.id.background_sky2));
-        recycleImageView((ImageView) findViewById(R.id.house_design));
-        recycleImageView((ImageView) findViewById(R.id.easy_room1));
-        recycleImageView((ImageView) findViewById(R.id.easy_room2));
-        recycleImageView((ImageView) findViewById(R.id.easy_room3));
-        recycleImageView((ImageView) findViewById(R.id.easy_room4));
-        recycleImageView((ImageView) findViewById(R.id.easy_room5));
-        recycleImageView((ImageView) findViewById(R.id.easy_room6));
+//        recycleImageView((ImageView) findViewById(R.id.freeze_screen));
+//        recycleImageView((ImageView) findViewById(R.id.background_sky1));
+//        recycleImageView((ImageView) findViewById(R.id.background_sky2));
+//        recycleImageView((ImageView) findViewById(R.id.house_design));
+//        recycleImageView((ImageView) findViewById(R.id.easy_room1));
+//        recycleImageView((ImageView) findViewById(R.id.easy_room2));
+//        recycleImageView((ImageView) findViewById(R.id.easy_room3));
+//        recycleImageView((ImageView) findViewById(R.id.easy_room4));
+//        recycleImageView((ImageView) findViewById(R.id.easy_room5));
+//        recycleImageView((ImageView) findViewById(R.id.easy_room6));
 
         ((ImageView) findViewById(R.id.freeze_screen)).setImageDrawable(null);
         ((ImageView) findViewById(R.id.background_sky1)).setImageDrawable(null);
