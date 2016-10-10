@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     Drawable backgrounds[] = new Drawable[2];
     int[] drawableIDs = new int[6];
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,33 +80,7 @@ public class MainActivity extends AppCompatActivity {
         /*System.out.println("If contains music onCreate: " + preferences.contains("Music"));*/
 
         // Check if onboarding_complete is false
-        if(!preferences.getBoolean("onboarding_complete",false)) {
-            dbHelper = new DatabaseHelper(getBaseContext());
-            dbHelper.deleteAll();
-            dbHelper.insertPowerUp(new PowerUp(1, "Freeze Money", 300, 0, "@drawable/freezeshopicon", "Avoid those electric bills and hold on to your money for a short amount of time!"));
-            dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon", "Discharge a house-wide brownout and have all the lights turned off instantly!"));
-            dbHelper.insertPowerUp(new PowerUp(3, "Default", 0, 1, "@drawable/defaulthouseicon", "The classic design in all its glory."));
-            dbHelper.insertPowerUp(new PowerUp(4, "Green House", 3000, 1, "@drawable/greenhouseicon", "Be one with nature as a refreshing green tone blankets the house."));
-            dbHelper.insertPowerUp(new PowerUp(5, "Nipa Hut", 5000, 1, "@drawable/nipahuticon", "Have a glimpse of the Phlippine heritage and rebuild your house out of bamboos and long leaves!"));
 
-
-            editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
-            editor.putInt("CurrentScore", 0);
-            editor.putInt("Coins", 15000);
-            //editor.putBoolean("Music", true);
-            //editor.putBoolean("SoundFX", true);
-            editor.putInt("powerup1Count", 0);
-            editor.putInt("powerup2Count", 0);
-            editor.putInt("powerup3Count", 1);
-            editor.putInt("powerup4Count", 0);
-            editor.putInt("powerup5Count", 0);
-            editor.putInt("CurrentDesign",0);
-            editor.apply();
-
-            editor.putBoolean("getsFreeCoins", true);
-            editor.apply();
-            editor.putBoolean("onboarding_complete", false);
-        }
 
 
 
@@ -221,6 +196,35 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         AudioPlayer.playMusic(getApplicationContext(), R.raw.mainmenu);
+
+        if(sharedPreferences.getBoolean("first_run", true)) {
+            dbHelper = new DatabaseHelper(getBaseContext());
+            dbHelper.deleteAll();
+            dbHelper.insertPowerUp(new PowerUp(1, "Freeze Money", 300, 0, "@drawable/freezeshopicon", "Avoid those electric bills and hold on to your money for a short amount of time!"));
+            dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon", "Discharge a house-wide brownout and have all the lights turned off instantly!"));
+            dbHelper.insertPowerUp(new PowerUp(3, "Default", 0, 1, "@drawable/defaulthouseicon", "The classic design in all its glory."));
+            dbHelper.insertPowerUp(new PowerUp(4, "Green House", 3000, 1, "@drawable/greenhouseicon", "Be one with nature as a refreshing green tone blankets the house."));
+            dbHelper.insertPowerUp(new PowerUp(5, "Nipa Hut", 5000, 1, "@drawable/nipahuticon", "Have a glimpse of the Phlippine heritage and rebuild your house out of bamboos and long leaves!"));
+
+
+            editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
+            editor.putInt("CurrentScore", 0);
+            editor.putInt("Coins", 15000);
+            //editor.putBoolean("Music", true);
+            //editor.putBoolean("SoundFX", true);
+            editor.putInt("powerup1Count", 0);
+            editor.putInt("powerup2Count", 0);
+            editor.putInt("powerup3Count", 1);
+            editor.putInt("powerup4Count", 0);
+            editor.putInt("powerup5Count", 0);
+            editor.putInt("CurrentDesign",0);
+            editor.putBoolean("first_run", false);
+            editor.apply();
+
+            editor.putBoolean("getsFreeCoins", true);
+            editor.apply();
+            // editor.putBoolean("onboarding_complete", false);
+        }
 
         // check if new coins
         if(sharedPreferences.getBoolean("getsFreeCoins", false)){
