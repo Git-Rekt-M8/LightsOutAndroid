@@ -339,18 +339,17 @@ public class SettingsDialogActivity extends Activity {
                         editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
                         editor.putInt("CurrentScore", 0);
                         editor.putInt("Coins", 15000);
-                        editor.putBoolean("Music", true);
-                        editor.putBoolean("SoundFX", true);
+                       // editor.putBoolean("Music", true);
+                      //  editor.putBoolean("SoundFX", true);
                         editor.putInt("powerup1Count", 0);
                         editor.putInt("powerup2Count", 0);
                         editor.putInt("powerup3Count", 0);
                         editor.putInt("powerup4Count", 0);
                         editor.putInt("CurrentDesign", 0);
-                        editor.apply();
-
                         editor.putBoolean("getsFreeCoins", true);
+                        editor.putBoolean("first_run", true);
                         editor.apply();
-                        editor.putBoolean("onboarding_complete", false);
+                       // editor.putBoolean("onboarding_complete", false);
 
                         preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
                         editor = preferences.edit();

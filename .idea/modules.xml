@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/samples/Iconicus/Iconicus.iml" filepath="$PROJECT_DIR$/samples/Iconicus/Iconicus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lights Out Android 9.26.iml" filepath="$PROJECT_DIR$/Lights Out Android 9.26.iml" />
       <module fileurl="file://$PROJECT_DIR$/LightsOut-HalaNapundi.iml" filepath="$PROJECT_DIR$/LightsOut-HalaNapundi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LightsOutAndroid-master.iml" filepath="$PROJECT_DIR$/LightsOutAndroid-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/samples/MessengerSendSample/MessengerSendSample.iml" filepath="$PROJECT_DIR$/samples/MessengerSendSample/MessengerSendSample.iml" />
       <module fileurl="file://$PROJECT_DIR$/samples/RPSSample/RPSSample.iml" filepath="$PROJECT_DIR$/samples/RPSSample/RPSSample.iml" />
       <module fileurl="file://$PROJECT_DIR$/samples/Scrumptious/Scrumptious.iml" filepath="$PROJECT_DIR$/samples/Scrumptious/Scrumptious.iml" />
