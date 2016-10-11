@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.MotionEvent;
@@ -184,6 +185,7 @@ public class EasyPlayGameActivity extends Activity {
 
         // DESGIN STUFF
         currentDesign = sharedPreferences.getInt("CurrentDesign", 0);
+        System.out.println("WHERE MY PARTY PEOPLE AT: " + currentDesign);
         switch (currentDesign) {
             case 0: break;
             case 3: designImageView.setImageResource(android.R.color.transparent);break;
@@ -428,7 +430,7 @@ public class EasyPlayGameActivity extends Activity {
             scoreValue += 30;
             animateTextView(scoreValue - 30, scoreValue, scoreTextView);
 
-            centerTextView.setText(R.string.streak_15_message);
+            centerTextView.setText(getString(R.string.streak_15_message, streakValue));
             centerTextView.startAnimation(streakFadeoutAnim);
             centerTextView.setVisibility(View.INVISIBLE);
 
@@ -437,7 +439,7 @@ public class EasyPlayGameActivity extends Activity {
             scoreValue += 20;
             animateTextView(scoreValue - 20, scoreValue, scoreTextView);
 
-            centerTextView.setText(R.string.streak_10_message);
+            centerTextView.setText(getString(R.string.streak_10_message, streakValue));
             centerTextView.startAnimation(streakFadeoutAnim);
             centerTextView.setVisibility(View.INVISIBLE);
 
@@ -447,7 +449,7 @@ public class EasyPlayGameActivity extends Activity {
             scoreValue += 10;
             animateTextView(scoreValue - 10, scoreValue, scoreTextView);
 
-            centerTextView.setText(R.string.streak_5_message);
+            centerTextView.setText(getString(R.string.streak_5_message, streakValue));
             centerTextView.startAnimation(streakFadeoutAnim);
             centerTextView.setVisibility(View.INVISIBLE);
 
@@ -667,6 +669,10 @@ public class EasyPlayGameActivity extends Activity {
                         centerTextView.setVisibility(View.INVISIBLE);
                         //randomizeAllRoomStatus();
                         refreshSwitches();
+                        //turn on all lights
+                        for(int i=0; i<4; i++) {
+                            updateComponents( i, i+1, false, true);
+                        }
                         RANDOMIZE_COUNTER--;
                         RANDOMIZE_SPEED = 1000;
                         POSSIBLE_LIGHTS_ON = 2;
@@ -852,9 +858,48 @@ public class EasyPlayGameActivity extends Activity {
     protected void onResume() {
         super.onResume();
         AudioPlayer.resumeMusic();
-        randomizeLitRoomHandler.postDelayed(randomizeLitRoomRunnable, 0);
-        hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
+        countdownHandler.postDelayed(countdownRunnable, 0);
     }
+
+    Handler countdownHandler = new Handler();
+    Runnable countdownRunnable = new Runnable() {
+
+        int countdownTime=3;
+        int countdownSpeed=750; //in milliseconds
+
+        boolean isFirstRun=true;
+
+        @Override
+        public void run() {
+            if(countdownTime>0) {
+                freezeScreenImageView.setImageResource(R.drawable.brownout_screen);
+                freezeScreenImageView.setVisibility(View.VISIBLE);
+                centerTextView.setText(String.valueOf(countdownTime));
+                centerTextView.setVisibility(View.VISIBLE);
+                countdownTime--;
+                countdownHandler.postDelayed(countdownRunnable, countdownSpeed);
+            }
+            else {
+                centerTextView.setText("Lights Out!");
+                centerTextView.startAnimation(streakFadeoutAnim);
+                centerTextView.setVisibility(View.INVISIBLE);
+                freezeScreenImageView.startAnimation(streakFadeoutAnim);
+                freezeScreenImageView.setVisibility(ImageView.INVISIBLE);
+
+                randomizeLitRoomHandler.postDelayed(randomizeLitRoomRunnable, 0);
+                hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
+
+                countdownTime=3;
+                if(isFirstRun){
+                    //turn on all lights
+                    for(int i=0; i<4; i++) {
+                        updateComponents( i, i+1, false, true);
+                    }
+                    isFirstRun=false;
+                }
+            }
+        }
+    };
 
     @Override
     protected void onPause() {

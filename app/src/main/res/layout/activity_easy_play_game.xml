@@ -260,18 +260,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!--streak text-->
-
-    <TextView
-        android:id="@+id/center_text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textColor="#fafaf9"
-        android:text="random text"
-        android:textSize="40sp"/>
-
-
     <!--OVERLAYS-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -299,12 +287,14 @@
         android:id="@+id/freeze_screen"
         android:src="@drawable/freeze_screen"/>
 
-
-
-    <ImageView
+    <!--streak text-->
+    <TextView
+        android:id="@+id/center_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        android:id="@+id/streak_view"/>
+        android:gravity="center"
+        android:textColor="#fafaf9"
+        android:text="random text"
+        android:textSize="40sp"/>
 
 </RelativeLayout>

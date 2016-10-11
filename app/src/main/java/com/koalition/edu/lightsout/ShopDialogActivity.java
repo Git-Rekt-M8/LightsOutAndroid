@@ -155,7 +155,8 @@ public class ShopDialogActivity extends Activity {
                 if(powerUp.getCategory() == 1) {
                     int ifBought = sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0);
                     if (ifBought > 0) {
-                        editor.putInt("CurrentDesign", 1);
+                        editor.putInt("CurrentDesign", powerUp.getId());
+                        editor.apply();
                         Toast toast = Toast.makeText(getBaseContext(), "Changed design to " + powerUp.getTitle() + "!",
                                 Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);

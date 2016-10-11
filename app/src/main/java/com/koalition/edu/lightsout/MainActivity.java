@@ -388,7 +388,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        backgrounds[0] = null;
+        backgrounds[1] = null;
 /*        recycleImageView(backgroundImageView);
         backgroundImageView.setImageDrawable(null);*/
 
