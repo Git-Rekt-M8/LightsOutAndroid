@@ -1,5 +1,6 @@
 package com.koalition.edu.lightsout;
 
+import android.animation.ValueAnimator;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -10,14 +11,17 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,12 +34,13 @@ import com.facebook.share.widget.ShareButton;
 public class GameOverActivity extends AppCompatActivity {
     TextView score;
     ImageView bestScoreText;
-    ImageView backToMainButton;
-    ImageView backToMainButtonClicked;
-    ImageView playAgainButton;
-    ImageView playAgainButtonClicked;
+    ImageButton backToMainButton;
+    ImageButton playAgainButton;
+    ShareButton fbShareButton;
     TextView coinsReceivedText;
     SharedPreferences sharedPreferences;
+
+    Animation fadeInAnimation;
 
 
     Typeface pixelFont;
@@ -49,11 +54,10 @@ public class GameOverActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_over);
         score = (TextView) findViewById(R.id.tv_easy_score);
         bestScoreText = (ImageView) findViewById(R.id.thats_your_best_text);
-        backToMainButton = (ImageView) findViewById(R.id.back_to_main_menu_button);
-        backToMainButtonClicked = (ImageView) findViewById(R.id.back_to_main_menu_button_clicked);
-        playAgainButton = (ImageView) findViewById(R.id.play_again_button);
-        playAgainButtonClicked = (ImageView) findViewById(R.id.play_again_button_clicked);
+        backToMainButton = (ImageButton) findViewById(R.id.back_to_main_menu_button);
+        playAgainButton = (ImageButton) findViewById(R.id.play_again_button);
         coinsReceivedText = (TextView) findViewById(R.id.coins_received_text);
+        fadeInAnimation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.fade_in);
 
         pixelFont = Typeface.createFromAsset(getAssets(),"fonts/pixelmix.ttf");
         score.setTypeface(pixelFont);
@@ -61,8 +65,6 @@ public class GameOverActivity extends AppCompatActivity {
 
 
         /* hide onclick buttons**/
-        backToMainButtonClicked.setVisibility(View.INVISIBLE);
-        playAgainButtonClicked.setVisibility(View.INVISIBLE);
         bestScoreText.setVisibility(View.INVISIBLE);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -84,9 +86,7 @@ public class GameOverActivity extends AppCompatActivity {
         editor.putInt("Coins", currentCoins + coinsReceived);
         editor.apply();
 
-
-
-        ShareButton fbShareButton = (ShareButton) findViewById(R.id.share_btn);
+        fbShareButton = (ShareButton) findViewById(R.id.share_btn);
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentDescription(
                         "Can you beat my score: " + score.getText().toString())
@@ -94,73 +94,72 @@ public class GameOverActivity extends AppCompatActivity {
                 .build();
         fbShareButton.setShareContent(content);
 
-        backToMainButton.setOnTouchListener(new View.OnTouchListener() {
+        backToMainButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction() & MotionEvent.ACTION_MASK) {
-                    case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
+            public void onClick(View v) {
 
-                        //=====Write down your Finger Pressed code here
-                        backToMainButton.setVisibility(View.INVISIBLE);
-                        backToMainButtonClicked.setVisibility(View.VISIBLE);
-                        return true;
-
-                    case MotionEvent.ACTION_UP:
-                    case MotionEvent.ACTION_POINTER_UP:
-
-                        //=====Write down you code Finger Released code here
-                        backToMainButtonClicked.setVisibility(View.INVISIBLE);
-                        backToMainButton.setVisibility(View.VISIBLE);
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(i);
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        finish();
-                        return true;
-                }
-                return false;
-
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
             }
         });
 
-        playAgainButton.setOnTouchListener(new View.OnTouchListener() {
+        playAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction() & MotionEvent.ACTION_MASK) {
-                    case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_POINTER_DOWN:
-
-                        //=====Write down your Finger Pressed code here
-                        playAgainButton.setVisibility(View.INVISIBLE);
-                        playAgainButtonClicked.setVisibility(View.VISIBLE);
-                        return true;
-
-                    case MotionEvent.ACTION_UP:
-                    case MotionEvent.ACTION_POINTER_UP:
-
-                        String difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        if(difficulty.equals("easy"))
-                            intent = new Intent(getApplicationContext(), EasyPlayGameActivity.class);
-                        else if(difficulty.equals("medium"))
-                            intent = new Intent(getApplicationContext(), MediumPlayGameActivity.class);
-                        else if(difficulty.equals("insane"))
-                            intent = new Intent(getApplicationContext(), InsanePlayGameActivity.class);
-                        startActivity(intent);
-                        finish();
-
-                        //=====Write down you code Finger Released code here
-                        playAgainButtonClicked.setVisibility(View.INVISIBLE);
-                        playAgainButton.setVisibility(View.VISIBLE);
-                        /*Intent i = new Intent(GameOverActivity.this, MainActivity.class);
-                        startActivity(i);*/
-                        return true;
-                }
-                return false;
-
+            public void onClick(View v) {
+                String difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                if(difficulty.equals("easy"))
+                    intent = new Intent(getApplicationContext(), EasyPlayGameActivity.class);
+                else if(difficulty.equals("medium"))
+                    intent = new Intent(getApplicationContext(), MediumPlayGameActivity.class);
+                else if(difficulty.equals("insane"))
+                    intent = new Intent(getApplicationContext(), InsanePlayGameActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
+        //hide buttons initially
+        fbShareButton.setVisibility(View.INVISIBLE);
+        backToMainButton.setVisibility(View.INVISIBLE);
+        playAgainButton.setVisibility(View.INVISIBLE);
+
+        animateTextView(0, currentScore, score);
+        animateTextView(0, coinsReceived, coinsReceivedText);
+
+        showButtonsHandler.postDelayed(showButtonsRunnable, 1700);
+    }
+
+
+    Handler showButtonsHandler = new Handler();
+    Runnable showButtonsRunnable = new Runnable() {
+        @Override
+        public void run() {
+            fbShareButton.startAnimation(fadeInAnimation);
+            fbShareButton.setVisibility(View.VISIBLE);
+            backToMainButton.startAnimation(fadeInAnimation);
+            backToMainButton.setVisibility(View.VISIBLE);
+            playAgainButton.startAnimation(fadeInAnimation);
+            playAgainButton.setVisibility(View.VISIBLE);
+        }
+    };
+
+    public void animateTextView(int initialValue, int finalValue, final TextView  textview) {
+
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(initialValue, finalValue);
+        valueAnimator.setDuration(1000);
+
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+
+                textview.setText(valueAnimator.getAnimatedValue().toString());
+
+            }
+        });
+        valueAnimator.start();
 
     }
 

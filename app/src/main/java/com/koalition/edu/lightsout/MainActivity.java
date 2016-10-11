@@ -366,6 +366,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             backgrounds[0] = oldBitmapDrawable;
+            System.gc();
             if(drawableIndex==5){
                 //backgrounds[1] = res.getDrawable(drawableIDs[0], getTheme());
                 backgrounds[1] = res.getDrawable(drawableIDs[0]);
