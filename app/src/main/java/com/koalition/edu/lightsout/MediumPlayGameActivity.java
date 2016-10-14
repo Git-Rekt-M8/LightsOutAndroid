@@ -919,7 +919,6 @@ public class MediumPlayGameActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        AudioPlayer.resumeMusic();
         countdownHandler.postDelayed(countdownRunnable, 0);
     }
 
@@ -940,6 +939,7 @@ public class MediumPlayGameActivity extends Activity {
                 centerTextView.setVisibility(View.VISIBLE);
                 countdownTime--;
                 countdownHandler.postDelayed(countdownRunnable, countdownSpeed);
+                AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
             }
             else {
                 centerTextView.setText("Lights Out!");
@@ -952,9 +952,11 @@ public class MediumPlayGameActivity extends Activity {
                 hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
 
                 countdownTime=3;
+                AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);
+                AudioPlayer.resumeMusic();
                 if(isFirstRun){
                     //turn on all lights
-                    for(int i=0; i<5; i++) {
+                    for(int i=0; i<4; i++) {
                         updateComponents( i, i+1, false, true);
                     }
                     isFirstRun=false;

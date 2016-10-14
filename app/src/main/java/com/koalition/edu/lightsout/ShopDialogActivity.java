@@ -93,6 +93,7 @@ public class ShopDialogActivity extends Activity {
         case 1: int ifBought = sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0);
                 if( ifBought>0 ) {
                     currentlyOwnedTextView.setText("Owned");
+                    buyImageButton.setBackgroundResource(R.drawable.apply_btn_selector);
                 }else{
                     currentlyOwnedTextView.setText("Not owned");
                 }
@@ -182,6 +183,7 @@ public class ShopDialogActivity extends Activity {
 //                        playerBalanceTV.setText(String.valueOf(sharedPreferences.getInt("Coins", 0)));
 //                        powerUpQuantity.setText(String.valueOf(sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0)));
                         currentlyOwnedTextView.setText("Owned");
+                        buyImageButton.setBackgroundResource(R.drawable.apply_btn_selector);
                         AudioPlayer.playSFX(getApplicationContext(), R.raw.cashsfx);
                         Toast toast = Toast.makeText(getBaseContext(), "Obtained a " + powerUp.getTitle() + "!",
                                 Toast.LENGTH_SHORT);

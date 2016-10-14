@@ -39,6 +39,7 @@ public class GameOverActivity extends AppCompatActivity {
     ShareButton fbShareButton;
     TextView coinsReceivedText;
     SharedPreferences sharedPreferences;
+    String difficulty;
 
     Animation fadeInAnimation;
 
@@ -89,7 +90,7 @@ public class GameOverActivity extends AppCompatActivity {
         fbShareButton = (ShareButton) findViewById(R.id.share_btn);
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentDescription(
-                        "Can you beat my score: " + score.getText().toString())
+                        "Can you beat my score: " + score.getText().toString() + " on " + capitalize(difficulty) + " Difficulty" )
                 .setContentUrl(Uri.parse("https://www.facebook.com/LightsOutMobile"))
                 .build();
         fbShareButton.setShareContent(content);
@@ -108,7 +109,7 @@ public class GameOverActivity extends AppCompatActivity {
         playAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
+                difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 if(difficulty.equals("easy"))
                     intent = new Intent(getApplicationContext(), EasyPlayGameActivity.class);
@@ -233,5 +234,9 @@ public class GameOverActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    public String capitalize(final String line) {
+        return Character.toUpperCase(line.charAt(0)) + line.substring(1);
     }
 }
