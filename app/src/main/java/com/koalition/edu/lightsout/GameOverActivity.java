@@ -69,6 +69,7 @@ public class GameOverActivity extends AppCompatActivity {
         bestScoreText.setVisibility(View.INVISIBLE);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
         SharedPreferences.Editor editor = sharedPreferences.edit();
         int highScore = sharedPreferences.getInt("HighScore", -1);
         int currentScore = sharedPreferences.getInt("CurrentScore", -5);
@@ -90,7 +91,7 @@ public class GameOverActivity extends AppCompatActivity {
         fbShareButton = (ShareButton) findViewById(R.id.share_btn);
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentDescription(
-                        "Can you beat my score: " + score.getText().toString() + " on " + capitalize(difficulty) + " Difficulty" )
+                        "I scored " + score.getText().toString() + " on " + capitalize(difficulty) + "! Can you beat me?" )
                 .setContentUrl(Uri.parse("https://www.facebook.com/LightsOutMobile"))
                 .build();
         fbShareButton.setShareContent(content);
@@ -109,7 +110,7 @@ public class GameOverActivity extends AppCompatActivity {
         playAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 if(difficulty.equals("easy"))
                     intent = new Intent(getApplicationContext(), EasyPlayGameActivity.class);

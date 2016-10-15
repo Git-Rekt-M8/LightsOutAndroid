@@ -78,8 +78,8 @@ public class InsanePlayGameActivity extends Activity {
     //Reaction time before money deduction is made
     int MONEY_DEDUCTION_SPEED = 1000;
     int POINTS_LOST = 1;
-    int POINTS_GAINED = 40;
-    int POSSIBLE_LIGHTS_ON = 4;
+    int POINTS_GAINED = 20;
+    int POSSIBLE_LIGHTS_ON = 2;
     int STARTING_COINS = 200;
 
     int currentDesign;
@@ -814,11 +814,13 @@ public class InsanePlayGameActivity extends Activity {
                         //randomizeAllRoomStatus();
                         refreshSwitches();
                         //turn on all lights
-                        for(int i=0; i<6; i++) {
+                        /*for(int i=0; i<6; i++) {
                             updateComponents( i, i+1, false, true);
-                        }
+                        }*/
+                        turnOnAllLights();
                         RANDOMIZE_COUNTER--;
                         RANDOMIZE_SPEED = 1000;
+                        POSSIBLE_LIGHTS_ON = 3;
                     }
                 }
 
@@ -996,6 +998,7 @@ public class InsanePlayGameActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        AudioPlayer.resumeMusic();
         countdownHandler.postDelayed(countdownRunnable, 0);
     }
 
@@ -1016,7 +1019,6 @@ public class InsanePlayGameActivity extends Activity {
                 centerTextView.setVisibility(View.VISIBLE);
                 countdownTime--;
                 countdownHandler.postDelayed(countdownRunnable, countdownSpeed);
-                AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
             }
             else {
                 centerTextView.setText("Lights Out!");
@@ -1029,13 +1031,13 @@ public class InsanePlayGameActivity extends Activity {
                 hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
 
                 countdownTime=3;
-                AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);
-                AudioPlayer.resumeMusic();
                 if(isFirstRun){
                     //turn on all lights
-                    for(int i=0; i<4; i++) {
+                    /*for(int i=0; i<6; i++) {
                         updateComponents( i, i+1, false, true);
-                    }
+                    }*/
+                   turnOnAllLights();
+
                     isFirstRun=false;
                 }
             }
@@ -1126,4 +1128,14 @@ public class InsanePlayGameActivity extends Activity {
 //        AppIndex.AppIndexApi.end(client, viewAction);
 //        client.disconnect();
 //    }
+
+    public void turnOnAllLights() {
+        for (int i = 0; i < switches.size(); i++) {
+            Switch switchObject = switches.get(i);
+            switchObject.setRoomState(true);
+            switchObject.setIsSwitchedByAI(true);
+            updateComponents(i, switchObject.getRoomNumber(), switchObject.getSwitchState(), switchObject.getRoomState());
+        }
+
+    }
 }

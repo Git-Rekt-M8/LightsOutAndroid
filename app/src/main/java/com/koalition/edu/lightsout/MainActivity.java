@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        crossfadeHandler.postDelayed(crossfadeRunnable, 0);
+        //crossfadeHandler.postDelayed(crossfadeRunnable, 0);
 
         MyApplication.activityResumed();
         // Get the shared preferences/
@@ -203,13 +203,13 @@ public class MainActivity extends AppCompatActivity {
             dbHelper.insertPowerUp(new PowerUp(1, "Freeze Money", 300, 0, "@drawable/freezeshopicon", "Avoid those electric bills and hold on to your money for a short amount of time!"));
             dbHelper.insertPowerUp(new PowerUp(2, "Brownout", 500, 0, "@drawable/brownshopicon", "Discharge a house-wide brownout and have all the lights turned off instantly!"));
             dbHelper.insertPowerUp(new PowerUp(3, "Default", 0, 1, "@drawable/defaulthouseicon", "The classic design in all its glory."));
-            dbHelper.insertPowerUp(new PowerUp(4, "Green House", 3000, 1, "@drawable/greenhouseicon", "Be one with nature as a refreshing green tone blankets the house."));
-            dbHelper.insertPowerUp(new PowerUp(5, "Nipa Hut", 5000, 1, "@drawable/nipahuticon", "Have a glimpse of the Phlippine heritage and rebuild your house out of bamboos and long leaves!"));
+            dbHelper.insertPowerUp(new PowerUp(4, "Green House", 20000, 1, "@drawable/greenhouseicon", "Be one with nature as a refreshing green tone blankets the house."));
+            dbHelper.insertPowerUp(new PowerUp(5, "Nipa Hut", 50000, 1, "@drawable/nipahuticon", "Have a glimpse of the Phlippine heritage and rebuild your house out of bamboos and long leaves!"));
 
 
             editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
             editor.putInt("CurrentScore", 0);
-            editor.putInt("Coins", 15000);
+            editor.putInt("Coins", 0);
             //editor.putBoolean("Music", true);
             //editor.putBoolean("SoundFX", true);
             editor.putInt("powerup1Count", 0);

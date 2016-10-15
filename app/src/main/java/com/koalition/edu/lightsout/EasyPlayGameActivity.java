@@ -670,9 +670,11 @@ public class EasyPlayGameActivity extends Activity {
                         //randomizeAllRoomStatus();
                         refreshSwitches();
                         //turn on all lights
-                        for(int i=0; i<4; i++) {
+                       /* for(int i=0; i<4; i++) {
                             updateComponents( i, i+1, false, true);
-                        }
+                        }*/
+                        turnOnAllLights();
+                        POINTS_GAINED = 15;
                         RANDOMIZE_COUNTER--;
                         RANDOMIZE_SPEED = 1000;
                         POSSIBLE_LIGHTS_ON = 2;
@@ -857,6 +859,7 @@ public class EasyPlayGameActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        AudioPlayer.resumeMusic();
         countdownHandler.postDelayed(countdownRunnable, 0);
     }
 
@@ -877,7 +880,6 @@ public class EasyPlayGameActivity extends Activity {
                 centerTextView.setVisibility(View.VISIBLE);
                 countdownTime--;
                 countdownHandler.postDelayed(countdownRunnable, countdownSpeed);
-                AudioPlayer.playSFX(getApplicationContext(), R.raw.switchsfx);
             }
             else {
                 centerTextView.setText("Lights Out!");
@@ -890,13 +892,12 @@ public class EasyPlayGameActivity extends Activity {
                 hudUpdateHandler.postDelayed(hudUpdateRunnable, 0);
 
                 countdownTime=3;
-                AudioPlayer.playSFX(getApplicationContext(), R.raw.brownoutsfx);
-                AudioPlayer.resumeMusic();
                 if(isFirstRun){
                     //turn on all lights
-                    for(int i=0; i<4; i++) {
+                    turnOnAllLights();
+                   /* for(int i=0; i<4; i++) {
                         updateComponents( i, i+1, false, true);
-                    }
+                    }*/
                     isFirstRun=false;
                 }
             }
@@ -982,4 +983,14 @@ public class EasyPlayGameActivity extends Activity {
 //        AppIndex.AppIndexApi.end(client, viewAction);
 //        client.disconnect();
 //    }
+
+    public void turnOnAllLights() {
+        for (int i = 0; i < switches.size(); i++) {
+            Switch switchObject = switches.get(i);
+            switchObject.setRoomState(true);
+            switchObject.setIsSwitchedByAI(true);
+            updateComponents(i, switchObject.getRoomNumber(), switchObject.getSwitchState(), switchObject.getRoomState());
+        }
+
+    }
 }
