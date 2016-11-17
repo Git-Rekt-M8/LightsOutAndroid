@@ -207,7 +207,10 @@ public class MainActivity extends AppCompatActivity {
             dbHelper.insertPowerUp(new PowerUp(5, "Nipa Hut", 50000, 1, "@drawable/nipahuticon", "Have a glimpse of the Phlippine heritage and rebuild your house out of bamboos and long leaves!"));
 
 
-            editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
+            editor.putInt("HighScore", 0); // Not used anymore, deprecated in version 1.0.3 HAHA
+            editor.putInt("EasyHighScore", 0);
+            editor.putInt("MediumHighScore", 0);
+            editor.putInt("InsaneHighScore", 0);
             editor.putInt("CurrentScore", 0);
             editor.putInt("Coins", 0);
             //editor.putBoolean("Music", true);

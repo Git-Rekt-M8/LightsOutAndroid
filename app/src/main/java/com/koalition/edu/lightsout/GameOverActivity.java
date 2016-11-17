@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
@@ -33,7 +34,7 @@ import com.facebook.share.widget.ShareButton;
 
 public class GameOverActivity extends AppCompatActivity {
     TextView score;
-    ImageView bestScoreText;
+    TextView bestScoreText;
     ImageButton backToMainButton;
     ImageButton playAgainButton;
     ShareButton fbShareButton;
@@ -54,7 +55,7 @@ public class GameOverActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_game_over);
         score = (TextView) findViewById(R.id.tv_easy_score);
-        bestScoreText = (ImageView) findViewById(R.id.thats_your_best_text);
+        bestScoreText = (TextView) findViewById(R.id.thats_your_best_text);
         backToMainButton = (ImageButton) findViewById(R.id.back_to_main_menu_button);
         playAgainButton = (ImageButton) findViewById(R.id.play_again_button);
         coinsReceivedText = (TextView) findViewById(R.id.coins_received_text);
@@ -63,24 +64,43 @@ public class GameOverActivity extends AppCompatActivity {
         pixelFont = Typeface.createFromAsset(getAssets(),"fonts/pixelmix.ttf");
         score.setTypeface(pixelFont);
         coinsReceivedText.setTypeface(pixelFont);
-
-
-        /* hide onclick buttons**/
-        bestScoreText.setVisibility(View.INVISIBLE);
+        bestScoreText.setTypeface(pixelFont);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         difficulty = sharedPreferences.getString("lastPlayedDifficulty", "easy");
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        int highScore = sharedPreferences.getInt("HighScore", -1);
+        String scorePref = "EasyHighScore";
+        if (difficulty.equals("easy")) {
+            scorePref = "EasyHighScore";
+        }
+        if (difficulty.equals("medium")) {
+            scorePref = "MediumHighScore";
+        }
+        if (difficulty.equals("insane")) {
+            scorePref = "InsaneHighScore";
+        }
+
+        int highScore = sharedPreferences.getInt(scorePref, -1);
+
         int currentScore = sharedPreferences.getInt("CurrentScore", -5);
         //change to store the current score also in preferenceScore
         score.setText(String.valueOf(currentScore));
-        if(currentScore >= highScore)
+        if(currentScore > highScore)
         {
-            editor.putInt("HighScore",currentScore);
+            editor.putInt(scorePref,currentScore);
             editor.apply();
-            bestScoreText.setVisibility(View.VISIBLE);
+            bestScoreText.setText("THAT'S YOUR NEW HIGH SCORE!");
+            bestScoreText.setTextColor(Color.parseColor("#FFD700"));
+            Animation anim = new AlphaAnimation(0.0f, 1.0f);
+            anim.setDuration(250); //You can manage the blinking time with this parameter
+            anim.setStartOffset(20);
+            anim.setRepeatMode(Animation.REVERSE);
+            anim.setRepeatCount(Animation.INFINITE);
+            bestScoreText.startAnimation(anim);
+            //bestScoreText.setVisibility(View.VISIBLE);
         }
+        else
+            bestScoreText.setText("HIGH SCORE: " + highScore);
         int coinsReceived = currentScore/10;
         coinsReceivedText.setText(String.valueOf(coinsReceived));
 
@@ -209,6 +229,12 @@ public class GameOverActivity extends AppCompatActivity {
             toast.show();
         }
         //mediaPlayer.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        bestScoreText.clearAnimation();
     }
 
     @Override

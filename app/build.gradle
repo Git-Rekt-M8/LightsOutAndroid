@@ -8,9 +8,16 @@ android {
         applicationId "com.koalition.edu.lightsout"
         minSdkVersion 18
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.3"
+        generatedDensities = []
     }
+
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+
+
     buildTypes {
         release {
             minifyEnabled true

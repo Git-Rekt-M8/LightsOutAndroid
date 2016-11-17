@@ -336,7 +336,10 @@ public class SettingsDialogActivity extends Activity {
                         editor.commit();
                         editor.apply();
 
-                        editor.putInt("HighScore", 0); // STORE INITIAL SCORE OF 0
+                        editor.putInt("HighScore", 0); // Not used anymore, deprecated in version 1.0.3 HAHA
+                        editor.putInt("EasyHighScore", 0);
+                        editor.putInt("MediumHighScore", 0);
+                        editor.putInt("InsaneHighScore", 0);
                         editor.putInt("CurrentScore", 0);
                         editor.putInt("Coins", 15000);
                        // editor.putBoolean("Music", true);
