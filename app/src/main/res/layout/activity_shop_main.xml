@@ -14,76 +14,77 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:id="@+id/back_button_shop"
-            android:textSize="40sp"
+            android:textSize="40dp"
             android:textColor="#f7f7f9"
             android:text="@string/shop_back_text"/>
 
-
-        <ImageView
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="6dp"
-            android:id="@+id/player_coin_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/player_coin_icon"/>
+            android:gravity="right">
 
-        <TextView
-            android:layout_weight="1"
-            android:gravity="right"
-            android:id="@+id/player_balance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="20"
-            android:textColor="#f7f7f9"
-            android:textSize="40sp" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="7dp"
+                android:id="@+id/player_coin_icon"
+                android:src="@drawable/player_coin_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:id="@+id/player_balance"
+                android:text="20"
+                android:textColor="#f7f7f9"
+                android:textSize="40dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/shop_head"
+        android:text="Shop"
+        android:textSize="60dp"
+        android:textColor="#f7f7f9"
+        android:gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         android:orientation="horizontal">
-
-        <TextView
-            android:layout_weight="1"
-            android:id="@+id/shop_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Shop"
-            android:textSize="60sp"
-            android:textColor="#f7f7f9"
-            android:gravity="center"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp">
 
         <ImageView
             android:layout_weight="1"
             android:id="@+id/power_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:src="@drawable/power_btn"/>
 
 
         <ImageView
             android:layout_weight="1"
             android:id="@+id/design_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:src="@drawable/design_btn" />
 
     </LinearLayout>

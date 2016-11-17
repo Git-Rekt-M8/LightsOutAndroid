@@ -67,7 +67,8 @@
         <activity
             android:name=".SettingsDialogActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Dialog" />
+            android:screenOrientation="landscape"
+            android:theme="@style/CustomDialogTheme" />
         <activity
             android:name=".ShopMainActivity"
             android:label="@string/title_activity_shop_main"
