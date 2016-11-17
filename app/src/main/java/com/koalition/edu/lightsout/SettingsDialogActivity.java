@@ -341,7 +341,7 @@ public class SettingsDialogActivity extends Activity {
                         editor.putInt("MediumHighScore", 0);
                         editor.putInt("InsaneHighScore", 0);
                         editor.putInt("CurrentScore", 0);
-                        editor.putInt("Coins", 15000);
+                        editor.putInt("Coins", 0);
                        // editor.putBoolean("Music", true);
                       //  editor.putBoolean("SoundFX", true);
                         editor.putInt("powerup1Count", 0);
