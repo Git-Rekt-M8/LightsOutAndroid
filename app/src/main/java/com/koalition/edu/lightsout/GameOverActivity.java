@@ -89,10 +89,10 @@ public class GameOverActivity extends AppCompatActivity {
         {
             editor.putInt(scorePref,currentScore);
             editor.apply();
-            bestScoreText.setText("THAT'S YOUR NEW HIGH SCORE!");
+            bestScoreText.setText("THAT'S YOUR BEST SCORE!" + " (" + difficulty.toUpperCase() + ")");
             bestScoreText.setTextColor(Color.parseColor("#FFD700"));
             Animation anim = new AlphaAnimation(0.0f, 1.0f);
-            anim.setDuration(250); //You can manage the blinking time with this parameter
+            anim.setDuration(350); //You can manage the blinking time with this parameter
             anim.setStartOffset(20);
             anim.setRepeatMode(Animation.REVERSE);
             anim.setRepeatCount(Animation.INFINITE);
@@ -100,7 +100,7 @@ public class GameOverActivity extends AppCompatActivity {
             //bestScoreText.setVisibility(View.VISIBLE);
         }
         else
-            bestScoreText.setText("HIGH SCORE: " + highScore);
+            bestScoreText.setText("YOUR HIGH SCORE: " + highScore + " (" + difficulty.toUpperCase() + ")");
         int coinsReceived = currentScore/10;
         coinsReceivedText.setText(String.valueOf(coinsReceived));
 
