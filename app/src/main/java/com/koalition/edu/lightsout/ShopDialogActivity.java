@@ -29,6 +29,7 @@ import org.w3c.dom.Text;
 
 public class ShopDialogActivity extends Activity {
 
+    private Toast toast = null;
     Typeface pixelFont;
 
     ImageView close;
@@ -89,8 +90,8 @@ public class ShopDialogActivity extends Activity {
         final SharedPreferences.Editor editor = preferences.edit();
 
         switch (powerUp.getCategory()){
-        case 0: currentlyOwnedTextView.setText("Stock: ");break;
-        case 1: int ifBought = sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0);
+            case 0: currentlyOwnedTextView.setText("Stock: ");break;
+            case 1: int ifBought = sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0);
                 if( ifBought>0 ) {
                     currentlyOwnedTextView.setText("Owned");
                     buyImageButton.setBackgroundResource(R.drawable.apply_btn_selector);
@@ -116,10 +117,6 @@ public class ShopDialogActivity extends Activity {
                         powerUpQuantity.setText(String.valueOf(sharedPreferences.getInt("powerup" + powerUp.getId() + "Count", 0)));
                         AudioPlayer.playSFX(getApplicationContext(), R.raw.cashsfx);
 
-                        Toast toast = Toast.makeText(getBaseContext(), "Obtained a " + powerUp.getTitle() + " powerup!",
-                                Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
-
                         TextView textView = new TextView(getApplicationContext());
                         textView.setBackgroundColor(Color.DKGRAY);
                         textView.setTextColor(Color.WHITE);
@@ -130,14 +127,20 @@ public class ShopDialogActivity extends Activity {
                         textView.setPadding(10, 10, 10, 10);
                         textView.setText("Obtained a " + powerUp.getTitle() + " powerup!");
 
-                        toast.setView(textView);
-                        toast.show();
+
+                        if (toast == null || !toast.getView().isShown()) {
+                            if (toast != null) {
+                                toast.cancel();
+                            }
+                            toast = Toast.makeText(getBaseContext(), "Obtained a " + powerUp.getTitle() + " powerup!",
+                                    Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+
+                            toast.setView(textView);
+                            toast.show();
+                        }
 
                     } else {
-                        Toast toast = Toast.makeText(getBaseContext(), "Not enough coins :(",
-                                Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
-
                         TextView textView = new TextView(getApplicationContext());
                         textView.setBackgroundColor(Color.DKGRAY);
                         textView.setTextColor(Color.WHITE);
@@ -148,8 +151,17 @@ public class ShopDialogActivity extends Activity {
                         textView.setPadding(10, 10, 10, 10);
                         textView.setText("Not enough coins :(");
 
-                        toast.setView(textView);
-                        toast.show();
+                        if (toast == null || !toast.getView().isShown()) {
+                            if (toast != null) {
+                                toast.cancel();
+                            }
+                            toast = Toast.makeText(getBaseContext(), "Not enough coins :(",
+                                    Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+
+                            toast.setView(textView);
+                            toast.show();
+                        }
                     }
                 }
 
@@ -158,9 +170,6 @@ public class ShopDialogActivity extends Activity {
                     if (ifBought > 0) {
                         editor.putInt("CurrentDesign", powerUp.getId());
                         editor.apply();
-                        Toast toast = Toast.makeText(getBaseContext(), "Changed design to " + powerUp.getTitle() + "!",
-                                Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
 
                         TextView textView = new TextView(getApplicationContext());
                         textView.setBackgroundColor(Color.DKGRAY);
@@ -171,8 +180,18 @@ public class ShopDialogActivity extends Activity {
                         textView.setTypeface(typeface);
                         textView.setPadding(10, 10, 10, 10);
                         textView.setText("Changed design to " + powerUp.getTitle() + "!");
-                        toast.setView(textView);
-                        toast.show();
+
+                        if (toast == null || !toast.getView().isShown()) {
+                            if (toast != null) {
+                                toast.cancel();
+                            }
+                            toast = Toast.makeText(getBaseContext(), "Changed design to " + powerUp.getTitle() + "!",
+                                    Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+
+                            toast.setView(textView);
+                            toast.show();
+                        }
 
                     } else if (currentCoins > powerUp.getPrice()) {
                         editor.putInt("Coins", currentCoins - powerUp.getPrice());
@@ -185,9 +204,6 @@ public class ShopDialogActivity extends Activity {
                         currentlyOwnedTextView.setText("Owned");
                         buyImageButton.setBackgroundResource(R.drawable.apply_btn_selector);
                         AudioPlayer.playSFX(getApplicationContext(), R.raw.cashsfx);
-                        Toast toast = Toast.makeText(getBaseContext(), "Obtained a " + powerUp.getTitle() + "!",
-                                Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
 
                         TextView textView = new TextView(getApplicationContext());
                         textView.setBackgroundColor(Color.DKGRAY);
@@ -198,12 +214,18 @@ public class ShopDialogActivity extends Activity {
                         textView.setTypeface(typeface);
                         textView.setPadding(10, 10, 10, 10);
                         textView.setText("Obtained a " + powerUp.getTitle() + "!");
-                        toast.setView(textView);
-                        toast.show();
+
+                        if (toast == null || !toast.getView().isShown()) {
+                            if (toast != null) {
+                                toast.cancel();
+                            }
+                            Toast toast = Toast.makeText(getBaseContext(), "Obtained a " + powerUp.getTitle() + "!",
+                                    Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+                            toast.setView(textView);
+                            toast.show();
+                        }
                     } else {
-                        Toast toast = Toast.makeText(getBaseContext(), "Not enough coins :(",
-                                Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
 
                         TextView textView = new TextView(getApplicationContext());
                         textView.setBackgroundColor(Color.DKGRAY);
@@ -215,8 +237,16 @@ public class ShopDialogActivity extends Activity {
                         textView.setPadding(10, 10, 10, 10);
                         textView.setText("Not enough coins :(");
 
-                        toast.setView(textView);
-                        toast.show();
+                        if (toast == null || !toast.getView().isShown()) {
+                            if (toast != null) {
+                                toast.cancel();
+                            }
+                            toast = Toast.makeText(getBaseContext(), "Not enough coins :(",
+                                    Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP, toast.getXOffset() / 2, toast.getYOffset() / 2);
+                            toast.setView(textView);
+                            toast.show();
+                        }
                     }
                 }
             }
