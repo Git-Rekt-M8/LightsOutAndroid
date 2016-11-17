@@ -665,6 +665,7 @@ public class EasyPlayGameActivity extends Activity {
                         centerTextView.setText("Everything is different now...");
                         AudioPlayer.playMusic(getApplicationContext(), R.raw.intense);
                         animator.setDuration(5000L);
+                        centerTextView.clearAnimation();
                         centerTextView.startAnimation(freezeFadeoutAnim);
                         centerTextView.setVisibility(View.INVISIBLE);
                         //randomizeAllRoomStatus();

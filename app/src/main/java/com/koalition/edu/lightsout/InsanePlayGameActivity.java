@@ -807,6 +807,7 @@ public class InsanePlayGameActivity extends Activity {
                 if( RANDOMIZE_COUNTER>0 ) {
                     if (moneyValue < STARTING_COINS / 2) {
                         centerTextView.setText("Everything is different now...");
+                        centerTextView.clearAnimation();
                         centerTextView.startAnimation(freezeFadeoutAnim);
                         centerTextView.setVisibility(View.INVISIBLE);
                         AudioPlayer.playMusic(getApplicationContext(), R.raw.intense);
