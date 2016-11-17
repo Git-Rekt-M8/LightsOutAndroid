@@ -66,6 +66,7 @@
 
         <activity
             android:name=".SettingsDialogActivity"
+            android:launchMode="singleTask"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Dialog" />
         <activity
@@ -78,6 +79,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".DifficultySelectionActivity"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_difficulty_selection"
             android:theme="@android:style/Theme.Dialog" />
         <activity
@@ -106,6 +108,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".ShopDialogActivity"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_shop_dialog"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Dialog"></activity>

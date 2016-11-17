@@ -807,7 +807,6 @@ public class InsanePlayGameActivity extends Activity {
                 if( RANDOMIZE_COUNTER>0 ) {
                     if (moneyValue < STARTING_COINS / 2) {
                         centerTextView.setText("Everything is different now...");
-                        centerTextView.clearAnimation();
                         centerTextView.startAnimation(freezeFadeoutAnim);
                         centerTextView.setVisibility(View.INVISIBLE);
                         AudioPlayer.playMusic(getApplicationContext(), R.raw.intense);
@@ -1014,6 +1013,12 @@ public class InsanePlayGameActivity extends Activity {
         @Override
         public void run() {
             if(countdownTime>0) {
+                switchButton1.setEnabled(false);
+                switchButton2.setEnabled(false);
+                switchButton3.setEnabled(false);
+                switchButton4.setEnabled(false);
+                switchButton5.setEnabled(false);
+                switchButton6.setEnabled(false);
                 freezeScreenImageView.setImageResource(R.drawable.brownout_screen);
                 freezeScreenImageView.setVisibility(View.VISIBLE);
                 centerTextView.setText(String.valueOf(countdownTime));
@@ -1041,6 +1046,12 @@ public class InsanePlayGameActivity extends Activity {
 
                     isFirstRun=false;
                 }
+                switchButton1.setEnabled(true);
+                switchButton2.setEnabled(true);
+                switchButton3.setEnabled(true);
+                switchButton4.setEnabled(true);
+                switchButton5.setEnabled(true);
+                switchButton6.setEnabled(true);
             }
         }
     };

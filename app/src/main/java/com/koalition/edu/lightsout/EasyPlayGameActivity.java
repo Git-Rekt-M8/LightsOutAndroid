@@ -665,7 +665,6 @@ public class EasyPlayGameActivity extends Activity {
                         centerTextView.setText("Everything is different now...");
                         AudioPlayer.playMusic(getApplicationContext(), R.raw.intense);
                         animator.setDuration(5000L);
-                        centerTextView.clearAnimation();
                         centerTextView.startAnimation(freezeFadeoutAnim);
                         centerTextView.setVisibility(View.INVISIBLE);
                         //randomizeAllRoomStatus();
@@ -875,6 +874,10 @@ public class EasyPlayGameActivity extends Activity {
         @Override
         public void run() {
             if(countdownTime>0) {
+                switchButton1.setEnabled(false);
+                switchButton2.setEnabled(false);
+                switchButton3.setEnabled(false);
+                switchButton4.setEnabled(false);
                 freezeScreenImageView.setImageResource(R.drawable.brownout_screen);
                 freezeScreenImageView.setVisibility(View.VISIBLE);
                 centerTextView.setText(String.valueOf(countdownTime));
@@ -901,6 +904,10 @@ public class EasyPlayGameActivity extends Activity {
                     }*/
                     isFirstRun=false;
                 }
+                switchButton1.setEnabled(true);
+                switchButton2.setEnabled(true);
+                switchButton3.setEnabled(true);
+                switchButton4.setEnabled(true);
             }
         }
     };
