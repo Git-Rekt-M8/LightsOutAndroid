@@ -78,7 +78,9 @@ public class EasyPlayGameActivity extends Activity {
     int POSSIBLE_LIGHTS_ON = 1;
     int STARTING_COINS = 100;
 
-
+    // TO AVOID CONFLICT SA EVERYTHING IS BLABLA
+    int halfTimeTextTimerCount = 5;
+    boolean halfTimeTextIsShown = false;
 
     int currentDesign;
 
@@ -430,29 +432,33 @@ public class EasyPlayGameActivity extends Activity {
             scoreValue += 30;
             animateTextView(scoreValue - 30, scoreValue, scoreTextView);
 
-            centerTextView.setText(getString(R.string.streak_15_message, streakValue));
-            centerTextView.startAnimation(streakFadeoutAnim);
-            centerTextView.setVisibility(View.INVISIBLE);
+            if(halfTimeTextIsShown == false) {
+                centerTextView.setText(getString(R.string.streak_15_message, streakValue));
+                centerTextView.startAnimation(streakFadeoutAnim);
+                centerTextView.setVisibility(View.INVISIBLE);
+            }
 
             updateHUD(moneyValue, scoreValue);
         } else if (streakValue >= 10) {
             scoreValue += 20;
             animateTextView(scoreValue - 20, scoreValue, scoreTextView);
 
-            centerTextView.setText(getString(R.string.streak_10_message, streakValue));
-            centerTextView.startAnimation(streakFadeoutAnim);
-            centerTextView.setVisibility(View.INVISIBLE);
-
+            if(halfTimeTextIsShown == false) {
+                centerTextView.setText(getString(R.string.streak_10_message, streakValue));
+                centerTextView.startAnimation(streakFadeoutAnim);
+                centerTextView.setVisibility(View.INVISIBLE);
+            }
             updateHUD(moneyValue, scoreValue);
         } else
         if (streakValue >= 5) {
             scoreValue += 10;
             animateTextView(scoreValue - 10, scoreValue, scoreTextView);
 
-            centerTextView.setText(getString(R.string.streak_5_message, streakValue));
-            centerTextView.startAnimation(streakFadeoutAnim);
-            centerTextView.setVisibility(View.INVISIBLE);
-
+            if(halfTimeTextIsShown == false) {
+                centerTextView.setText(getString(R.string.streak_5_message, streakValue));
+                centerTextView.startAnimation(streakFadeoutAnim);
+                centerTextView.setVisibility(View.INVISIBLE);
+            }
             updateHUD(moneyValue, scoreValue);
         }
     }
@@ -665,6 +671,8 @@ public class EasyPlayGameActivity extends Activity {
                         centerTextView.setText("Everything is different now...");
                         AudioPlayer.playMusic(getApplicationContext(), R.raw.intense);
                         animator.setDuration(5000L);
+                        // START TIMER TO RETAIN TEXTVIEW
+                        halfTimeTextTimerHandler.postDelayed(halfTimeTextTimerRunnable, 0);
                         centerTextView.startAnimation(freezeFadeoutAnim);
                         centerTextView.setVisibility(View.INVISIBLE);
                         //randomizeAllRoomStatus();
@@ -689,6 +697,21 @@ public class EasyPlayGameActivity extends Activity {
                 hudUpdateHandler.postDelayed(this, MONEY_DEDUCTION_SPEED);
             }
         }
+    };
+
+    Handler halfTimeTextTimerHandler = new Handler();
+    Runnable halfTimeTextTimerRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            if(halfTimeTextTimerCount>0) {
+                halfTimeTextIsShown=true;
+                halfTimeTextTimerCount--;
+                halfTimeTextTimerHandler.postDelayed(this, 1000);
+            }
+            else halfTimeTextIsShown=false;
+        }
+
     };
 
 
